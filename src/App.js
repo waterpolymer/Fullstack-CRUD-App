@@ -2,20 +2,39 @@ import React, { Component } from "react";
 import "./App.css";
 import { connect } from "react-redux";
 import { addStudent } from "./store/utilities/student";
+
+//Dummy data
+let student1 = {
+  id: 2,
+  firstName: "bob",
+  lastName: "jones",
+  email: "bobbyboy1234@yahoo.com",
+  gpa: 3.7,
+  campusId: 1
+};
+
 class App extends Component {
+  addStudent = student => {
+    this.props.addStudent(student);
+  };
+
+  onSubmit(student1) {
+    this.props.addStudent(student1);
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <h1>Hello World</h1>
+          <button type="button" onClick={() => this.onSubmit(student1)}>
+            Submit
+          </button>
+          {console.log(this.props.allStudents)}
         </header>
       </div>
     );
   }
-
-  addStudent = student => {
-    this.props.addStudent(student);
-  };
 }
 
 // Declaration for mapStateToProps;
@@ -23,8 +42,7 @@ class App extends Component {
 // The values of these keys reflect the value of the piece of state in your Redux store;
 const mapState = state => {
   return {
-    counter: state.counter,
-    students: state.students
+    allStudents: state.studentReducer
   };
 };
 
