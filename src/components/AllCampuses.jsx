@@ -36,7 +36,7 @@ class AllCampuses extends Component {
 			<div className="all-campuses-container">
 				<h1>All Campuses</h1>
 				<LinkButton to="/">Home</LinkButton>
-				<div className="campuses-card-container">{campusesCards}</div>
+				<div className="campus-card-container">{campusesCards}</div>
 				<button type="button" onClick={() => addCampus(dummyCampus)}>
 					Add Campus
 				</button>

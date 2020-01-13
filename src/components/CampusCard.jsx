@@ -4,8 +4,12 @@ const CampusCard = props => {
 	const campus = props.campus;
 	return (
 		<div className="campus-card">
-			<div className="profile-picture-container">
-				<img alt="pfp" src={campus.imageUrl} className="profile-picture"></img>
+			<div className="campus-picture-container">
+				<img
+					alt="campus"
+					src={campus.imageUrl}
+					className="campus-picture"
+				></img>
 			</div>
 			<div className="campus-info">
 				<p>{`Name: ${campus.name}`}</p>

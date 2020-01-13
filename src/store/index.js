@@ -17,11 +17,3 @@ const middleware = composeWithDevTools(
 const store = createStore(rootReducer, middleware);
 
 export default store;
-
-// barrel
-export { default as addStudent } from "./utilities/student";
-export { default as removeStudent } from "./utilities/student";
-export { default as fetchStudentsThunk } from "./utilities/student";
-export { default as addCampus } from "./utilities/campus";
-export { default as removeCampus } from "./utilities/campus";
-export { default as fetchCampusesThunk } from "./utilities/campus";
