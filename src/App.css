@@ -1,18 +1,47 @@
 .App {
   text-align: center;
-}
-
-.App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.all-students-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.student-card-container {
+  display: flex;
+  margin-top: 50px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.student-card {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  background-color: grey;
+}
+
+.profile-picture-container {
+  margin: 10px 10px 0px 10px
+}
+
+.profile-picture {
+  border: 1px solid #000;
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.student-info {
+  text-align: left;
+  margin-left: 15px
 }
