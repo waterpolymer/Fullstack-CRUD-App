@@ -6,16 +6,6 @@ import { addStudent, fetchStudentsThunk } from "./store/utilities/student";
 // Import view;
 import AppView from "./AppView";
 
-//Dummy data
-// let dummyStudent = {
-// 	id: 5,
-// 	firstName: "bob",
-// 	lastName: "jones",
-// 	email: "bobbyboy1234@yahoo.com",
-// 	gpa: 3.7,
-// 	campusId: 1
-// };
-
 class App extends Component {
 	componentDidMount() {
 		this.props.fetchAllStudents();

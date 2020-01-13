@@ -8,6 +8,7 @@ const dummyStudents = [
 		firstName: "bob",
 		lastName: "jones",
 		email: "bobbyboy1234@yahoo.com",
+		imageUrl: "https://i.stack.imgur.com/l60Hf.png",
 		gpa: 3.7,
 		campusId: 1
 	},
@@ -16,6 +17,7 @@ const dummyStudents = [
 		firstName: "bob2",
 		lastName: "jones",
 		email: "bobbyboy1234@yahoo.com",
+		imageUrl: "https://i.stack.imgur.com/l60Hf.png",
 		gpa: 3.7,
 		campusId: 1
 	},
@@ -24,6 +26,7 @@ const dummyStudents = [
 		firstName: "bob3",
 		lastName: "jones",
 		email: "bobbyboy1234@yahoo.com",
+		imageUrl: "https://i.stack.imgur.com/l60Hf.png",
 		gpa: 3.7,
 		campusId: 2
 	},
@@ -32,6 +35,7 @@ const dummyStudents = [
 		firstName: "bob4",
 		lastName: "jones",
 		email: "bobbyboy1234@yahoo.com",
+		imageUrl: "https://i.stack.imgur.com/l60Hf.png",
 		gpa: 3.7,
 		campusId: 2
 	}

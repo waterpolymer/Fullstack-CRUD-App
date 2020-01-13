@@ -1,4 +1,6 @@
 import React from "react";
+import LinkButton from "./LinkButton";
+import StudentCard from "./StudentCard";
 
 //Dummy data
 let dummyStudent = {
@@ -12,16 +14,17 @@ let dummyStudent = {
 
 const AllStudents = props => {
 	const { allStudents, addStudent } = props;
+	const studentCards = allStudents.map(student => (
+		<StudentCard student={student} />
+	));
 
 	return (
 		<div>
-			<ul>
-				{allStudents.map(student => (
-					<li
-						key={student.id}
-					>{`${student.firstName}, ${student.lastName}`}</li>
-				))}
-			</ul>
+			<div>
+				<h1>All Students</h1>
+			</div>
+			<LinkButton to="/">Home</LinkButton>
+			<div className="student-card-container">{studentCards}</div>
 		</div>
 	);
 };

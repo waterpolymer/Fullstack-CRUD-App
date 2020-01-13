@@ -6,6 +6,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.student-card-container {
+  display: flex;
+  margin-top: 50px;
+}
+
+.student-card {
+  margin: 10px;
 }
