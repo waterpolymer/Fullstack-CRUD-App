@@ -20,8 +20,6 @@ const AddStudentView = (props) => {
                 <div> campus Id: <input name="campusId" type="text" value={campusId} onChange={handleChange}/></div>
                 <div> <input type="submit" value="submit"/></div>
             </form>
-
-            {firstName}
         </div>
     );
 }

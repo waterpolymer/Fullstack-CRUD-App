@@ -7,12 +7,12 @@ class AddStudent extends Component{
     constructor(props){
         super(props);
         this.state = {
-            firstName: "flamming dumpster",
-            lastName: "",
-            email: "",
+            firstName: "flamming",
+            lastName: "dumpster",
+            email: "test@test.com",
             imageUrl: "",
-            gpa: "",
-            campusId: ""
+            gpa: "4.0",
+            campusId: "20"
         }
     }
 
@@ -32,21 +32,24 @@ class AddStudent extends Component{
             gpa: this.state.gpa,
             campusId: this.state.campusId
         }
-        this.props.addStudent(student)
+        this.props.addStudent(student);
+        console.log(this.props.allStudents);
     }
 
     render(){
         return(
-            <AddStudentView 
-            firstName={this.state.firstName} 
-            lastName={this.state.lastName} 
-            campusName={this.state.campusName}
-            email={this.state.email}
-            imageUrl={this.state.imageUrl}
-            gpa={this.state.gpa}
-            campusId={this.state.campusId}
-            handleSubmit={this.handleSubmit}
-            handleChange={this.handleChange}/>
+            <div>
+                <AddStudentView 
+                firstName={this.state.firstName} 
+                lastName={this.state.lastName} 
+                campusName={this.state.campusName}
+                email={this.state.email}
+                imageUrl={this.state.imageUrl}
+                gpa={this.state.gpa}
+                campusId={this.state.campusId}
+                handleSubmit={this.handleSubmit}
+                handleChange={this.handleChange}/>
+            </div>
         )
     }
 }

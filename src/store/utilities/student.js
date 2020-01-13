@@ -140,7 +140,6 @@ export const fetchStudentsThunk = () => dispatch => {
 };
 
 //REDUCER FUNCTIONS
-<<<<<<< HEAD
 function studentReducer(state = initialState, action) {
 	switch (action.type) {
 		case SET_STUDENTS:
@@ -148,12 +147,6 @@ function studentReducer(state = initialState, action) {
 				...state,
 				allStudents: action.payload
 			};
-=======
-function studentReducer(state = {}, action) {
-	switch (action.type) {
-		case FETCH_STUDENTS:
-			return {...state, allStudents: action.payload};
->>>>>>> Added student form
 		case ADD_STUDENT:
 			return {
 				...state,
