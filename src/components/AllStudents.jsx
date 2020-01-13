@@ -15,7 +15,7 @@ let dummyStudent = {
 const AllStudents = props => {
 	const { allStudents, addStudent } = props;
 	const studentCards = allStudents.map(student => (
-		<StudentCard student={student} />
+		<StudentCard key={student.id} student={student} />
 	));
 
 	return (

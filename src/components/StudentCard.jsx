@@ -4,9 +4,13 @@ const StudentCard = props => {
 	const student = props.student;
 	return (
 		<div className="student-card">
-			<img src={student.imageUrl} width="100" height="100"></img>
-			<br></br>
-			<p>{`${student.firstName}, ${student.lastName}`}</p>
+			<div className="profile-picture-container">
+				<img alt="pfp" src={student.imageUrl} className="profile-picture"></img>
+			</div>
+			<div className="student-info">
+				<p>{`Name: ${student.firstName} ${student.lastName}`}</p>
+				<p>{`Campus id: ${student.campusId}`}</p>
+			</div>
 		</div>
 	);
 };
