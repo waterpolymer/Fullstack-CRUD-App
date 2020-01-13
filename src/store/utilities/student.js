@@ -1,6 +1,7 @@
 //ACTION TYPES
 const ADD_STUDENT = "ADD_STUDENT";
 const SET_STUDENTS = "SET_STUDENTS";
+const SET_STUDENT = "SET_STUDENT";
 
 const dummyStudents = [
 	{
@@ -119,12 +120,26 @@ const setStudents = students => {
 	};
 };
 
+export const setStudent = student => {
+	return{
+		type: SET_STUDENT,
+		payload: student
+	}
+}
+
 //THUNKS, SKIP FOR NOW CAUSE WE DONT HAVE ANY ASYNCH STUFF YET LOL
 export const fetchStudents = () => dispatch => {
 	const arrayOfStudentsFromAPI = dummyStudents;
 
 	dispatch(setStudents(arrayOfStudentsFromAPI));
 };
+
+export const fetchStudent = (studentid) => dispatch =>{
+	const student = dummyStudents.filter(item => item.id = studentid)
+	dispatch(setStudent(student))
+}
+
+
 
 //REDUCER FUNCTIONS
 function studentReducer(state = [], action) {
@@ -138,6 +153,11 @@ function studentReducer(state = [], action) {
 			return {
 				...state,
 				allStudents: [...state.allStudents, action.payload]
+			};
+		case SET_STUDENT:
+			return {
+				...state,
+				student: action.payload
 			};
 		default:
 			return state;
