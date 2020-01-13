@@ -17,36 +17,32 @@ const AddStudentView = props => {
 		<div>
 			<h1>Add Student</h1>
 			<LinkButton to="/"> Home </LinkButton>
-			<form
+			<div
 				style={{
 					display: "flex",
 					flexDirection: "column"
 				}}
-				onSubmit={handleSubmit}
 			>
 				<div>
-					{" "}
 					first name:
 					<input
 						name="firstName"
 						type="text"
 						value={firstName}
 						onChange={handleChange}
-					/>{" "}
+					/>
 				</div>
 				<div>
-					{" "}
-					last name:{" "}
+					last name:
 					<input
 						name="lastName"
 						type="text"
 						value={lastName}
 						onChange={handleChange}
-					/>{" "}
+					/>
 				</div>
 				<div>
-					{" "}
-					email:{" "}
+					email:
 					<input
 						name="email"
 						type="email"
@@ -55,8 +51,7 @@ const AddStudentView = props => {
 					/>
 				</div>
 				<div>
-					{" "}
-					image url:{" "}
+					image url:
 					<input
 						name="imageUrl"
 						type="text"
@@ -65,13 +60,11 @@ const AddStudentView = props => {
 					/>
 				</div>
 				<div>
-					{" "}
-					gpa:{" "}
+					gpa:
 					<input name="gpa" type="text" value={gpa} onChange={handleChange} />
 				</div>
 				<div>
-					{" "}
-					campus Id:{" "}
+					campus Id:
 					<input
 						name="campusId"
 						type="text"
@@ -80,26 +73,14 @@ const AddStudentView = props => {
 					/>
 				</div>
 				<div>
-					{" "}
-					<input type="submit" value="submit" />
+					<LinkButton to="/students" onClick={handleSubmit}>
+						Submit
+					</LinkButton>
 				</div>
-			</form>
+			</div>
 			<LinkButton to="/students">All Students</LinkButton>
 		</div>
 	);
 };
-
-/*
-	{
-		id: 1,
-		firstName: "bob",
-		lastName: "jones",
-		email: "bobbyboy1234@yahoo.com",
-		imageUrl: "https://i.stack.imgur.com/l60Hf.png",
-		gpa: 3.7,
-		campusId: 1
-	},
-
-*/
 
 export default AddStudentView;
