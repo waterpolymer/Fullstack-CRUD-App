@@ -2,6 +2,7 @@
 const ADD_STUDENT = "ADD_STUDENT";
 const SET_STUDENTS = "SET_STUDENTS";
 const SET_STUDENT = "SET_STUDENT";
+const REMOVE_STUDENT = "REMOVE_STUDENT";
 
 const dummyStudents = [
 	{
@@ -96,7 +97,7 @@ const dummyStudents = [
 	}
 ];
 
-const intialState = {
+const initialState = {
 	allStudents : [],
 	currStudent : null
 }
@@ -106,11 +107,8 @@ const intialState = {
 //Used for ADD_STUDENT
 //No payload b/c we are only using this to add the student to the array of allStudents
 export const addStudent = student => {
+	dummyStudents.push(student);
 	return {
-		/*
-    type: ADD_STUDENT,
-    allStudents: [...state.allStudents, student]
-    */
 		type: ADD_STUDENT,
 		payload: student
 	};
@@ -131,9 +129,16 @@ export const setStudent = student => {
 		payload: student
 	}
 }
+export const removeStudent = studentId => {
+	console.log("remove");
+	return {
+		type: REMOVE_STUDENT,
+		payload: studentId
+	};
+};
 
 //THUNKS, SKIP FOR NOW CAUSE WE DONT HAVE ANY ASYNCH STUFF YET LOL
-export const fetchStudents = () => dispatch => {
+export const fetchStudentsThunk = () => dispatch => {
 	const arrayOfStudentsFromAPI = dummyStudents;
 
 	dispatch(setStudents(arrayOfStudentsFromAPI));
@@ -147,7 +152,7 @@ export const fetchStudent = (studentid) => dispatch =>{
 
 
 //REDUCER FUNCTIONS
-function studentReducer(state = intialState, action) {
+function studentReducer(state = initialState, action) {
 	switch (action.type) {
 		case SET_STUDENTS:
 			return {
@@ -163,6 +168,12 @@ function studentReducer(state = intialState, action) {
 			return {
 				...state,
 				currStudent: action.payload
+		case REMOVE_STUDENT:
+			return {
+				...state,
+				allStudents: state.allStudents.filter(
+					student => student.id !== action.payload
+				)
 			};
 		default:
 			return state;
