@@ -1,33 +1,59 @@
-import React from "react";
+import React, { Component } from "react";
 import LinkButton from "./LinkButton";
 import StudentCard from "./StudentCard";
+import { connect } from "react-redux";
+import { addStudent, fetchStudents } from "../store/utilities/student";
 
 //Dummy data
-// let dummyStudent = {
-// 	id: 5,
-// 	firstName: "bob",
-// 	lastName: "jones",
-// 	email: "bobbyboy1234@yahoo.com",
-// 	gpa: 3.7,
-// 	campusId: 1
-// };
+let dummyStudent = {
+	id: 11,
+	firstName: "bob11",
+	lastName: "jones",
+	email: "bobbyboy1234@yahoo.com",
+	imageUrl: "https://i.stack.imgur.com/l60Hf.png",
+	gpa: 3.7,
+	campusId: 1
+};
 
-const AllStudents = props => {
-	const { allStudents } = props;
-	const studentCards = allStudents.map(student => (
-		<StudentCard key={student.id} student={student} />
-	));
+class AllStudents extends Component {
+	componentDidMount() {
+		this.props.fetchAllStudents();
+	}
 
 	// https://stackoverflow.com/questions/32802202/how-to-center-a-flex-container-but-left-align-flex-items
 	// cant word-wrap with items left-justified
+	render() {
+		const { allStudents, addStudent } = this.props;
 
-	return (
-		<div className="all-students-container">
-			<h1>All Students</h1>
-			<LinkButton to="/">Home</LinkButton>
-			<div className="student-card-container">{studentCards}</div>
-		</div>
-	);
-};
+		console.log("allstudents", allStudents);
+		let studentCards = null;
 
-export default AllStudents;
+		if (allStudents) {
+			studentCards = allStudents.map(student => (
+				<StudentCard key={student.id} student={student} />
+			));
+		}
+		return (
+			<div className="all-students-container">
+				<h1>All Students</h1>
+				<LinkButton to="/">Home</LinkButton>
+				<div className="student-card-container">{studentCards}</div>
+				<button type="button" onClick={() => addStudent(dummyStudent)}>
+					Add Student
+				</button>
+			</div>
+		);
+	}
+}
+
+const mapStateToProps = state => ({
+	allStudents: state.studentReducer.allStudents
+});
+
+const mapDispatchToProps = dispatch => ({
+	fetchAllStudents: () => dispatch(fetchStudents()),
+	addStudent: student => dispatch(addStudent(student))
+});
+
+// export default AllStudents;
+export default connect(mapStateToProps, mapDispatchToProps)(AllStudents);

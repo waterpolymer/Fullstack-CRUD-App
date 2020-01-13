@@ -1,6 +1,6 @@
 //ACTION TYPES
 const ADD_STUDENT = "ADD_STUDENT";
-const FETCH_STUDENTS = "FETCH_STUDENTS";
+const SET_STUDENTS = "SET_STUDENTS";
 
 const dummyStudents = [
 	{
@@ -95,12 +95,6 @@ const dummyStudents = [
 	}
 ];
 
-//INITIAL STATE
-//allStudents and allCampuses will start off as empty
-// const initialState = {
-// 	allStudents: dummyStudents
-// };
-
 //ACTION CREATERS
 
 //Used for ADD_STUDENT
@@ -118,25 +112,28 @@ export const addStudent = student => {
 
 //Used for SHOW_STUDENT action type -- will return payload later on
 //student becomes the payload -- payload = data about student!
-const fetchStudents = students => {
+const setStudents = students => {
 	return {
-		type: FETCH_STUDENTS,
+		type: SET_STUDENTS,
 		payload: students
 	};
 };
 
 //THUNKS, SKIP FOR NOW CAUSE WE DONT HAVE ANY ASYNCH STUFF YET LOL
-export const fetchStudentsThunk = () => dispatch => {
+export const fetchStudents = () => dispatch => {
 	const arrayOfStudentsFromAPI = dummyStudents;
 
-	dispatch(fetchStudents(arrayOfStudentsFromAPI));
+	dispatch(setStudents(arrayOfStudentsFromAPI));
 };
 
 //REDUCER FUNCTIONS
 function studentReducer(state = [], action) {
 	switch (action.type) {
-		case FETCH_STUDENTS:
-			return action.payload;
+		case SET_STUDENTS:
+			return {
+				...state,
+				allStudents: action.payload
+			};
 		case ADD_STUDENT:
 			return {
 				...state,
