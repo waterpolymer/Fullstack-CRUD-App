@@ -1,6 +1,7 @@
 //ACTION TYPES
 const ADD_STUDENT = "ADD_STUDENT";
 const SET_STUDENTS = "SET_STUDENTS";
+const REMOVE_STUDENT = "REMOVE_STUDENT";
 
 const dummyStudents = [
 	{
@@ -95,6 +96,10 @@ const dummyStudents = [
 	}
 ];
 
+const initialState = {
+	allStudents: dummyStudents
+};
+
 //ACTION CREATERS
 
 //Used for ADD_STUDENT
@@ -119,15 +124,23 @@ const setStudents = students => {
 	};
 };
 
+export const removeStudent = studentId => {
+	console.log("remove");
+	return {
+		type: REMOVE_STUDENT,
+		payload: studentId
+	};
+};
+
 //THUNKS, SKIP FOR NOW CAUSE WE DONT HAVE ANY ASYNCH STUFF YET LOL
-export const fetchStudents = () => dispatch => {
+export const fetchStudentsThunk = () => dispatch => {
 	const arrayOfStudentsFromAPI = dummyStudents;
 
 	dispatch(setStudents(arrayOfStudentsFromAPI));
 };
 
 //REDUCER FUNCTIONS
-function studentReducer(state = [], action) {
+function studentReducer(state = initialState, action) {
 	switch (action.type) {
 		case SET_STUDENTS:
 			return {
@@ -138,6 +151,13 @@ function studentReducer(state = [], action) {
 			return {
 				...state,
 				allStudents: [...state.allStudents, action.payload]
+			};
+		case REMOVE_STUDENT:
+			return {
+				...state,
+				allStudents: state.allStudents.filter(
+					student => student.id !== action.payload
+				)
 			};
 		default:
 			return state;

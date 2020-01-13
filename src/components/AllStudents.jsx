@@ -2,7 +2,11 @@ import React, { Component } from "react";
 import LinkButton from "./LinkButton";
 import StudentCard from "./StudentCard";
 import { connect } from "react-redux";
-import { addStudent, fetchStudents } from "../store/utilities/student";
+import {
+	addStudent,
+	removeStudent,
+	fetchStudentsThunk
+} from "../store/utilities/student";
 
 //Dummy data
 let dummyStudent = {
@@ -23,7 +27,7 @@ class AllStudents extends Component {
 	// https://stackoverflow.com/questions/32802202/how-to-center-a-flex-container-but-left-align-flex-items
 	// cant word-wrap with items left-justified
 	render() {
-		const { allStudents, addStudent } = this.props;
+		const { allStudents, addStudent, removeStudent } = this.props;
 
 		console.log("allstudents", allStudents);
 		let studentCards = null;
@@ -41,6 +45,9 @@ class AllStudents extends Component {
 				<button type="button" onClick={() => addStudent(dummyStudent)}>
 					Add Student
 				</button>
+				<button type="button" onClick={() => removeStudent(dummyStudent.id)}>
+					Remove Student
+				</button>
 			</div>
 		);
 	}
@@ -51,8 +58,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-	fetchAllStudents: () => dispatch(fetchStudents()),
-	addStudent: student => dispatch(addStudent(student))
+	fetchAllStudents: () => dispatch(fetchStudentsThunk()),
+	addStudent: student => dispatch(addStudent(student)),
+	removeStudent: student => dispatch(removeStudent(student))
 });
 
 // export default AllStudents;
