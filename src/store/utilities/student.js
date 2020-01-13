@@ -98,9 +98,9 @@ const dummyStudents = [
 ];
 
 const initialState = {
-	allStudents : [],
-	currStudent : null
-}
+	allStudents: [],
+	currStudent: null
+};
 
 //ACTION CREATERS
 
@@ -124,11 +124,11 @@ const setStudents = students => {
 };
 
 export const setStudent = student => {
-	return{
+	return {
 		type: SET_STUDENT,
 		payload: student
-	}
-}
+	};
+};
 export const removeStudent = studentId => {
 	console.log("remove");
 	return {
@@ -144,12 +144,10 @@ export const fetchStudentsThunk = () => dispatch => {
 	dispatch(setStudents(arrayOfStudentsFromAPI));
 };
 
-export const fetchStudent = (studentid) => dispatch =>{
-	const student = dummyStudents.filter(item => item.id === studentid)[0]
-	dispatch(setStudent(student))
-}
-
-
+export const fetchStudent = studentid => dispatch => {
+	const student = dummyStudents.filter(item => item.id === studentid)[0];
+	dispatch(setStudent(student));
+};
 
 //REDUCER FUNCTIONS
 function studentReducer(state = initialState, action) {
@@ -168,6 +166,7 @@ function studentReducer(state = initialState, action) {
 			return {
 				...state,
 				currStudent: action.payload
+			};
 		case REMOVE_STUDENT:
 			return {
 				...state,
