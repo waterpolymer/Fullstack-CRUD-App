@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchStudent } from "../store/utilities/student";
 
@@ -12,42 +12,42 @@ let dummyStudent = {
 	campusId: 1
 };
 
-class SingleStudent extends Component{
-  componentDidMount(){
-    this.state = {
-      student: {}
-    }
+class SingleStudent extends Component {
+	componentDidMount() {
+		console.log(this.props);
+		// this.state = {
+		//   student: {}
+		// }
+		// this.setState({
+		//   student: this.props.getStudent(this.props.studentid),
+		// })
+	}
 
-    this.setState({
-      student: this.props.getStudent(this.props.studentid),
-    })
-  }
+	render() {
+		let student = dummyStudent;
 
-  render(){
-
-    let student = dummyStudent;
-
-    return(
-      <div>
-        {this.props.studentid}
-        <img src={student.imageUrl} alt=""/>
-        <h3> {student.firstName}  {student.LastName} </h3>
-        Email: {student.email} <br/>
-        GPA: {student.gpa} <br/>
-        Campus: {student.campusId}
-      </div>
-    )
-  }
-
-
+		return (
+			<div>
+				{this.props.studentid}
+				<img src={student.imageUrl} alt="" />
+				<h3>
+					{" "}
+					{student.firstName} {student.LastName}{" "}
+				</h3>
+				Email: {student.email} <br />
+				GPA: {student.gpa} <br />
+				Campus: {student.campusId}
+			</div>
+		);
+	}
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  studentid: window.location.pathname.split("/")[2],
-})
+	studentid: window.location.pathname.split("/")[2]
+});
 
 const mapDispatchToProps = {
-  getStudent: id => dispatch(fetchStudent(id))
-}
+	// getStudent: id => dispatch(fetchStudent(id))
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(SingleStudent)
+export default connect(mapStateToProps, mapDispatchToProps)(SingleStudent);

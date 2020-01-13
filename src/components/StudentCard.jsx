@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const StudentCard = props => {
 	const student = props.student;
@@ -8,7 +9,9 @@ const StudentCard = props => {
 				<img alt="pfp" src={student.imageUrl} className="profile-picture"></img>
 			</div>
 			<div className="student-info">
-				<p>{`Name: ${student.firstName} ${student.lastName}`}</p>
+				<Link
+					to={"/students/" + student.id}
+				>{`Name: ${student.firstName} ${student.lastName}`}</Link>
 				<p>{`Campus id: ${student.campusId}`}</p>
 			</div>
 		</div>
