@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { Home, AllStudents, AddStudent, SingleStudent, AllCampuses } from "./components";
+import {
+	Home,
+	AllStudents,
+	AddStudent,
+	SingleStudent,
+	AllCampuses
+} from "./components";
+import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
@@ -16,11 +23,11 @@ class App extends Component {
 							path="/students/:studentid"
 							render={props => <SingleStudent {...props} />}
 						/>
-            <Route
+						<Route
 							exact
 							path="/students/add-student"
 							render={() => <AddStudent />}
-            />
+						/>
 					</div>
 				</Router>
 			</div>

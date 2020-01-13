@@ -23,7 +23,8 @@ const dummyCampuses = [
 ];
 
 const initialState = {
-	allCampuses: []
+	allCampuses: [],
+	currCampus: null
 };
 
 //ACTION CREATERS
@@ -31,11 +32,8 @@ const initialState = {
 //Used for ADD_CAMPUS
 //No payload b/c we are only using this to add the campus to the array of allCampuses
 export const addCampus = campus => {
+	dummyCampuses.push(campus);
 	return {
-		/*
-    type: ADD_CAMPUS,
-    allCampuses: [...state.allCampuses, campus]
-    */
 		type: ADD_CAMPUS,
 		payload: campus
 	};
