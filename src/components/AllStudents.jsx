@@ -2,11 +2,7 @@ import React, { Component } from "react";
 import LinkButton from "./LinkButton";
 import StudentCard from "./StudentCard";
 import { connect } from "react-redux";
-import {
-	addStudent,
-	removeStudent,
-	fetchStudentsThunk
-} from "../store/utilities/student";
+import { addStudent, removeStudent, fetchStudentsThunk } from "../thunks";
 
 //Dummy data
 let dummyStudent = {

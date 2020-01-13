@@ -6,6 +6,7 @@ const Home = props => {
 		<div>
 			<h1>Hello World</h1>
 			<LinkButton to="/students">All Students</LinkButton>
+			<LinkButton to="/campuses">All Campuses</LinkButton>
 		</div>
 	);
 };
