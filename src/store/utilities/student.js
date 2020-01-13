@@ -38,6 +38,60 @@ const dummyStudents = [
 		imageUrl: "https://i.stack.imgur.com/l60Hf.png",
 		gpa: 3.7,
 		campusId: 2
+	},
+	{
+		id: 5,
+		firstName: "bob5",
+		lastName: "jones",
+		email: "bobbyboy1234@yahoo.com",
+		imageUrl: "https://i.stack.imgur.com/l60Hf.png",
+		gpa: 3.7,
+		campusId: 1
+	},
+	{
+		id: 6,
+		firstName: "bob6",
+		lastName: "jones",
+		email: "bobbyboy1234@yahoo.com",
+		imageUrl: "https://i.stack.imgur.com/l60Hf.png",
+		gpa: 3.7,
+		campusId: 1
+	},
+	{
+		id: 7,
+		firstName: "bob7",
+		lastName: "jones",
+		email: "bobbyboy1234@yahoo.com",
+		imageUrl: "https://i.stack.imgur.com/l60Hf.png",
+		gpa: 3.7,
+		campusId: 2
+	},
+	{
+		id: 8,
+		firstName: "bob8",
+		lastName: "jones",
+		email: "bobbyboy1234@yahoo.com",
+		imageUrl: "https://i.stack.imgur.com/l60Hf.png",
+		gpa: 3.7,
+		campusId: 2
+	},
+	{
+		id: 9,
+		firstName: "bob9",
+		lastName: "jones",
+		email: "bobbyboy1234@yahoo.com",
+		imageUrl: "https://i.stack.imgur.com/l60Hf.png",
+		gpa: 3.7,
+		campusId: 1
+	},
+	{
+		id: 10,
+		firstName: "bob9",
+		lastName: "jones",
+		email: "bobbyboy1234@yahoo.com",
+		imageUrl: "https://i.stack.imgur.com/l60Hf.png",
+		gpa: 3.7,
+		campusId: 2
 	}
 ];
 
