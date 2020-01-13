@@ -13,17 +13,20 @@ let dummyStudent = {
 };
 
 class SingleStudent extends Component {
+	constructor(props) {
+		super(props);
+	}
 	componentDidMount() {
-		console.log(this.props.studentid);
-		console.log(this.props.getStudent(this.props.studentid));
+		this.props.getStudent(this.props.studentid);
+		console.log("props",this.props);
 	}
 
 	render() {
-		let student = dummyStudent;
-
-		return (
-			<div>
-				{this.props.studentid}
+		let s = null;
+		console.log(this.props.currStudent)
+		if (this.props.currStudent) {
+			let student = this.props.currStudent;
+			s = (<div>
 				<img src={student.imageUrl} alt="" />
 				<h3>
 					{" "}
@@ -32,13 +35,21 @@ class SingleStudent extends Component {
 				Email: {student.email} <br />
 				GPA: {student.gpa} <br />
 				Campus: {student.campusId}
+			</div>)
+		}
+		console.log(this.props.currStudent)
+
+		return (
+			<div>
+			{s}
 			</div>
 		);
 	}
 }
 
 const mapStateToProps = (state, ownProps) => ({
-	studentid: parseInt(window.location.pathname.split("/")[2])
+	studentid: parseInt(window.location.pathname.split("/")[2]),
+	currStudent: state.currStudent
 });
 
 const mapDispatchToProps = (dispatch) => ({

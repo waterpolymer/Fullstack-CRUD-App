@@ -96,6 +96,11 @@ const dummyStudents = [
 	}
 ];
 
+const intialState = {
+	allStudents : [],
+	currStudent : null
+}
+
 //ACTION CREATERS
 
 //Used for ADD_STUDENT
@@ -135,14 +140,14 @@ export const fetchStudents = () => dispatch => {
 };
 
 export const fetchStudent = (studentid) => dispatch =>{
-	const student = dummyStudents.filter(item => item.id === studentid)
+	const student = dummyStudents.filter(item => item.id === studentid)[0]
 	dispatch(setStudent(student))
 }
 
 
 
 //REDUCER FUNCTIONS
-function studentReducer(state = [], action) {
+function studentReducer(state = intialState, action) {
 	switch (action.type) {
 		case SET_STUDENTS:
 			return {
@@ -157,7 +162,7 @@ function studentReducer(state = [], action) {
 		case SET_STUDENT:
 			return {
 				...state,
-				student: action.payload
+				currStudent: action.payload
 			};
 		default:
 			return state;
