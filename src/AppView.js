@@ -1,29 +1,23 @@
 import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Home, AllStudents } from "./components";
 
 const AppView = props => {
-	//Dummy data
-	let dummyStudent = {
-		id: 5,
-		firstName: "bob",
-		lastName: "jones",
-		email: "bobbyboy1234@yahoo.com",
-		gpa: 3.7,
-		campusId: 1
-	};
+	const { allStudents, addStudent } = props;
 
-	const { allStudents } = props;
+	const HomeComponent = () => <Home />;
+	const AllStudentComponent = () => (
+		<AllStudents allStudents={allStudents} addStudent={addStudent} />
+	);
 
 	return (
 		<div className="App">
-			<header className="App-header">
-				<ul>
-					{allStudents.map(student => (
-						<li
-							key={student.id}
-						>{`${student.firstName}, ${student.lastName}`}</li>
-					))}
-				</ul>
-			</header>
+			<Router basename="">
+				<div>
+					<Route exact path="/" render={HomeComponent} />
+					<Route exact path="/students" render={AllStudentComponent} />
+				</div>
+			</Router>
 		</div>
 	);
 };
