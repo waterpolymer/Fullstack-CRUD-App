@@ -46,8 +46,8 @@ const mapStateToProps = (state, ownProps) => ({
 	studentid: window.location.pathname.split("/")[2]
 });
 
-const mapDispatchToProps = {
-	// getStudent: id => dispatch(fetchStudent(id))
-};
+const mapDispatchToProps = (dispatch) => ({
+	getStudent: id => dispatch(fetchStudent(id))
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleStudent);
