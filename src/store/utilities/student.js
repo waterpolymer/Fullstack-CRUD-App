@@ -105,11 +105,8 @@ const initialState = {
 //Used for ADD_STUDENT
 //No payload b/c we are only using this to add the student to the array of allStudents
 export const addStudent = student => {
+	dummyStudents.push(student);
 	return {
-		/*
-    type: ADD_STUDENT,
-    allStudents: [...state.allStudents, student]
-    */
 		type: ADD_STUDENT,
 		payload: student
 	};

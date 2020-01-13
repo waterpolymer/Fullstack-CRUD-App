@@ -11,7 +11,11 @@ class App extends Component {
 					<div>
 						<Route exact path="/" render={() => <Home />} />
 						<Route exact path="/students" render={() => <AllStudents />} />
-						<Route exact path="/add-student" render={() => <AddStudent />} />
+						<Route
+							exact
+							path="/students/add-student"
+							render={() => <AddStudent />}
+						/>
 					</div>
 				</Router>
 			</div>
