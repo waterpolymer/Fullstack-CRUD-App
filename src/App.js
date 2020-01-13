@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import "./App.css";
-import { Home, AllStudents, AllCampuses } from "./components";
+import { Home, AllStudents, AddStudent, SingleStudent, AllCampuses } from "./components";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
@@ -12,6 +11,16 @@ class App extends Component {
 						<Route exact path="/" render={() => <Home />} />
 						<Route exact path="/students" render={() => <AllStudents />} />
 						<Route exact path="/campuses" render={() => <AllCampuses />} />
+						<Route
+							exact
+							path="/students/:studentid"
+							render={props => <SingleStudent {...props} />}
+						/>
+            <Route
+							exact
+							path="/students/add-student"
+							render={() => <AddStudent />}
+            />
 					</div>
 				</Router>
 			</div>

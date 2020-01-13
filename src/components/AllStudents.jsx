@@ -38,9 +38,7 @@ class AllStudents extends Component {
 				<h1>All Students</h1>
 				<LinkButton to="/">Home</LinkButton>
 				<div className="student-card-container">{studentCards}</div>
-				<button type="button" onClick={() => addStudent(dummyStudent)}>
-					Add Student
-				</button>
+				<LinkButton to="/students/add-student">Add Student</LinkButton>
 				<button type="button" onClick={() => removeStudent(dummyStudent.id)}>
 					Remove Student
 				</button>

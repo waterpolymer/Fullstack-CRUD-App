@@ -1,6 +1,7 @@
 //ACTION TYPES
 const ADD_STUDENT = "ADD_STUDENT";
 const SET_STUDENTS = "SET_STUDENTS";
+const SET_STUDENT = "SET_STUDENT";
 const REMOVE_STUDENT = "REMOVE_STUDENT";
 
 const dummyStudents = [
@@ -97,7 +98,8 @@ const dummyStudents = [
 ];
 
 const initialState = {
-	allStudents: []
+	allStudents: [],
+	currStudent: null
 };
 
 //ACTION CREATERS
@@ -105,11 +107,8 @@ const initialState = {
 //Used for ADD_STUDENT
 //No payload b/c we are only using this to add the student to the array of allStudents
 export const addStudent = student => {
+	dummyStudents.push(student);
 	return {
-		/*
-    type: ADD_STUDENT,
-    allStudents: [...state.allStudents, student]
-    */
 		type: ADD_STUDENT,
 		payload: student
 	};
@@ -124,6 +123,12 @@ const setStudents = students => {
 	};
 };
 
+export const setStudent = student => {
+	return {
+		type: SET_STUDENT,
+		payload: student
+	};
+};
 export const removeStudent = studentId => {
 	console.log("remove");
 	return {
@@ -139,6 +144,11 @@ export const fetchStudentsThunk = () => dispatch => {
 	dispatch(setStudents(arrayOfStudentsFromAPI));
 };
 
+export const fetchStudent = studentid => dispatch => {
+	const student = dummyStudents.filter(item => item.id === studentid)[0];
+	dispatch(setStudent(student));
+};
+
 //REDUCER FUNCTIONS
 function studentReducer(state = initialState, action) {
 	switch (action.type) {
@@ -151,6 +161,11 @@ function studentReducer(state = initialState, action) {
 			return {
 				...state,
 				allStudents: [...state.allStudents, action.payload]
+			};
+		case SET_STUDENT:
+			return {
+				...state,
+				currStudent: action.payload
 			};
 		case REMOVE_STUDENT:
 			return {
