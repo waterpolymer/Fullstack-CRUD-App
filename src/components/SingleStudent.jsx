@@ -49,7 +49,7 @@ class SingleStudent extends Component {
 
 const mapStateToProps = (state, ownProps) => ({
 	studentid: parseInt(window.location.pathname.split("/")[2]),
-	currStudent: state.currStudent
+	currStudent: state.studentReducer.currStudent
 });
 
 const mapDispatchToProps = (dispatch) => ({
