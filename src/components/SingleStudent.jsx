@@ -14,13 +14,7 @@ let dummyStudent = {
 
 class SingleStudent extends Component {
 	componentDidMount() {
-		console.log(this.props);
-		// this.state = {
-		//   student: {}
-		// }
-		// this.setState({
-		//   student: this.props.getStudent(this.props.studentid),
-		// })
+		console.log(this.props.getStudent(1));
 	}
 
 	render() {
