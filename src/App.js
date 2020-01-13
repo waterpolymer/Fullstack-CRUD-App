@@ -1,38 +1,36 @@
 import React, { Component } from "react";
 import "./App.css";
 import { connect } from "react-redux";
-import { addStudent } from "./store/utilities/student";
+import { addStudent, fetchStudentsThunk } from "./store/utilities/student";
+
+// Import view;
+import AppView from "./AppView";
 
 //Dummy data
-let dummyStudent = {
-	id: 5,
-	firstName: "bob",
-	lastName: "jones",
-	email: "bobbyboy1234@yahoo.com",
-	gpa: 3.7,
-	campusId: 1
-};
+// let dummyStudent = {
+// 	id: 5,
+// 	firstName: "bob",
+// 	lastName: "jones",
+// 	email: "bobbyboy1234@yahoo.com",
+// 	gpa: 3.7,
+// 	campusId: 1
+// };
 
 class App extends Component {
+	componentDidMount() {
+		this.props.fetchAllStudents();
+	}
+
 	addStudent = student => {
 		this.props.addStudent(student);
 	};
 
-	onSubmit(student) {
-		this.props.addStudent(student);
-	}
-
 	render() {
 		return (
-			<div className="App">
-				<header className="App-header">
-					<h1>Hello World</h1>
-					<button type="button" onClick={() => this.onSubmit(dummyStudent)}>
-						Submit
-					</button>
-					{console.log(this.props.allStudents)}
-				</header>
-			</div>
+			<AppView
+				allStudents={this.props.allStudents}
+				addStudent={this.addStudent}
+			/>
 		);
 	}
 }
@@ -53,7 +51,7 @@ const mapDispatch = dispatch => {
 	return {
 		//incrementCounter: (amount) => dispatch(increment(amount)),
 		//decrementCounter: (amount) => dispatch(decrement(amount)),
-		//fetchAllStudents: () => dispatch(fetchStudentsThunk()),
+		fetchAllStudents: () => dispatch(fetchStudentsThunk()),
 		//removeStudent: (id) => dispatch(removeStudentThunk(id)),
 		//addStudent: student => dispatch(addStudentThunk(student))
 		addStudent: student => dispatch(addStudent(student))
