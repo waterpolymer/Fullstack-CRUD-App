@@ -4,11 +4,13 @@ import thunkMiddleware from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 import studentReducer from "../store/utilities/student";
+import campusReducer from "../store/utilities/campus";
+
 //Put reducer inside as an Object
-const rootReducer = combineReducers({ studentReducer });
+const rootReducer = combineReducers({ studentReducer, campusReducer });
 const logger = createLogger({ collapsed: true });
 const middleware = composeWithDevTools(
-  applyMiddleware(thunkMiddleware, logger)
+	applyMiddleware(thunkMiddleware, logger)
 );
 
 //create store, passing in reducers
