@@ -97,7 +97,7 @@ const dummyStudents = [
 ];
 
 const initialState = {
-	allStudents: dummyStudents
+	allStudents: []
 };
 
 //ACTION CREATERS
