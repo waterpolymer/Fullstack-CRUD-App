@@ -14,7 +14,8 @@ let dummyStudent = {
 
 class SingleStudent extends Component {
 	componentDidMount() {
-		console.log(this.props.getStudent(1));
+		console.log(this.props.studentid);
+		console.log(this.props.getStudent(this.props.studentid));
 	}
 
 	render() {
@@ -37,7 +38,7 @@ class SingleStudent extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-	studentid: window.location.pathname.split("/")[2]
+	studentid: parseInt(window.location.pathname.split("/")[2])
 });
 
 const mapDispatchToProps = (dispatch) => ({

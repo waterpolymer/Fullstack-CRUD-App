@@ -135,7 +135,7 @@ export const fetchStudents = () => dispatch => {
 };
 
 export const fetchStudent = (studentid) => dispatch =>{
-	const student = dummyStudents.filter(item => item.id = studentid)
+	const student = dummyStudents.filter(item => item.id === studentid)
 	dispatch(setStudent(student))
 }
 
