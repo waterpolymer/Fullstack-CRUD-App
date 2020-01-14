@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import "./student.css";
 
 import LinkButton from "../utilities/LinkButton";
 
-import { getStudentThunk } from "../../actions";
+import { getStudentThunk, removeStudent } from "../../actions";
 
 class SingleStudent extends Component {
 	constructor(props) {
@@ -27,6 +28,12 @@ class SingleStudent extends Component {
 						GPA: {student.gpa} <br />
 						Campus: {student.campusId}
 					</div>
+					<Link
+						to="/students"
+						onClick={() => this.props.removeStudent(student.id)}
+					>
+						Remove Student
+					</Link>
 					<LinkButton to="/students">All Students</LinkButton>
 					<LinkButton to={`/students/${student.id}/edit-student`}>
 						Edit Student
@@ -44,7 +51,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-	getStudent: id => dispatch(getStudentThunk(id))
+	getStudent: id => dispatch(getStudentThunk(id)),
+	removeStudent: student => dispatch(removeStudent(student))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleStudent);

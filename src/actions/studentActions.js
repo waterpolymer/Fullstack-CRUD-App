@@ -80,6 +80,9 @@ export const editStudent = (student, studentId) => {
 };
 
 export const removeStudent = studentId => {
+	const oldStudent = dummyStudents.find(s => s.id === studentId);
+	const oldStudentIndex = dummyStudents.indexOf(oldStudent);
+	dummyStudents.splice(oldStudentIndex, 1);
 	return {
 		type: REMOVE_STUDENT,
 		payload: studentId
