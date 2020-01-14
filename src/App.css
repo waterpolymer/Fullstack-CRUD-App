@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  /*background-color: #282c34; */
   background-image: url(https://cdn.tourcms.com/a/11676/848/1/large.jpg);
   min-height: 100vh;
   display: flex;
@@ -65,7 +64,11 @@ div.profile-container img {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 3.7em;
+  font-family: Trebuchet MS;
+  font-style: oblique;
+  color: #ee818e;
+  text-shadow: 2px 2px 4px #e8e8e8;
 }
 
 .button {
