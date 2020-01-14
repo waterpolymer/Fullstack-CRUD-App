@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import LinkButton from "./LinkButton";
 import CampusCard from "./CampusCard";
 import { connect } from "react-redux";
-import { addCampus, removeCampus, fetchCampusesThunk } from "../thunks";
+import { addCampus, removeCampus, getCampusesThunk } from "../thunks";
 
 //Dummy data
 let dummyCampus = {
@@ -16,7 +16,7 @@ let dummyCampus = {
 
 class AllCampuses extends Component {
 	componentDidMount() {
-		this.props.fetchAllCampuses();
+		this.props.getAllCampuses();
 	}
 
 	// https://stackoverflow.com/questions/32802202/how-to-center-a-flex-container-but-left-align-flex-items
@@ -53,7 +53,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-	fetchAllCampuses: () => dispatch(fetchCampusesThunk()),
+	getAllCampuses: () => dispatch(getCampusesThunk()),
 	addCampus: campuses => dispatch(addCampus(campuses)),
 	removeCampus: campuses => dispatch(removeCampus(campuses))
 });

@@ -1,6 +1,6 @@
 //ACTION TYPES
 const ADD_CAMPUS = "ADD_CAMPUS";
-const SET_CAMPUSES = "SET_CAMPUSES";
+const GET_CAMPUSES = "GET_CAMPUSES";
 const REMOVE_CAMPUS = "REMOVE_CAMPUS";
 
 const dummyCampuses = [
@@ -41,10 +41,10 @@ export const addCampus = campus => {
 
 //Used for SHOW_CAMPUS action type -- will return payload later on
 //campus becomes the payload -- payload = data about campus!
-const setCampuses = campuss => {
+const getCampuses = campsues => {
 	return {
-		type: SET_CAMPUSES,
-		payload: campuss
+		type: GET_CAMPUSES,
+		payload: campsues
 	};
 };
 
@@ -57,16 +57,15 @@ export const removeCampus = campusId => {
 };
 
 //THUNKS, SKIP FOR NOW CAUSE WE DONT HAVE ANY ASYNCH STUFF YET LOL
-export const fetchCampusesThunk = () => dispatch => {
+export const getCampusesThunk = () => dispatch => {
 	const arrayOfCampusesFromAPI = dummyCampuses;
-
-	dispatch(setCampuses(arrayOfCampusesFromAPI));
+	dispatch(getCampuses(arrayOfCampusesFromAPI));
 };
 
 //REDUCER FUNCTIONS
 function campusReducer(state = initialState, action) {
 	switch (action.type) {
-		case SET_CAMPUSES:
+		case GET_CAMPUSES:
 			return {
 				...state,
 				allCampuses: action.payload

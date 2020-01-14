@@ -6,7 +6,6 @@ const AddStudentView = props => {
 		firstName,
 		lastName,
 		email,
-		imageUrl,
 		gpa,
 		campusId,
 		handleSubmit,

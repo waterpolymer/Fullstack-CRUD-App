@@ -3,20 +3,7 @@ import { connect } from "react-redux";
 import { fetchStudent } from "../store/utilities/student";
 import LinkButton from "./LinkButton";
 
-let dummyStudent = {
-	id: 11,
-	firstName: "bob11",
-	lastName: "jones",
-	email: "bobbyboy1234@yahoo.com",
-	imageUrl: "https://i.stack.imgur.com/l60Hf.png",
-	gpa: 3.7,
-	campusId: 1
-};
-
 class SingleStudent extends Component {
-	constructor(props) {
-		super(props);
-	}
 	componentDidMount() {
 		this.props.getStudent(this.props.studentid);
 		console.log("props", this.props);
