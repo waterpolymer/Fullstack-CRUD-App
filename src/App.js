@@ -9,18 +9,15 @@ import {
 } from "./components";
 import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import NavBar from './components/NavBar';
+import NavBar from "./components/NavBar";
 
 class App extends Component {
 	render() {
 		return (
 			<div className="App">
 				<Router basename="">
-<<<<<<< HEAD
 					<NavBar />
-=======
->>>>>>> 151480daccb978fe87cdc1af8479e91c901206d5
-						<div>
+					<div>
 						<Route exact path="/" render={() => <Home />} />
 						<Route exact path="/students" render={() => <AllStudents />} />
 						<Route exact path="/campuses" render={() => <AllCampuses />} />
@@ -34,10 +31,11 @@ class App extends Component {
 							path="/students/add-student"
 							render={() => <AddStudent />}
 						/>
-						<Route 
-							exact 
-							path="/students/:studentid/edit-student" 
-							render={(props) => <EditStudent {...props} />}/>
+						<Route
+							exact
+							path="/students/:studentid/edit-student"
+							render={props => <EditStudent {...props} />}
+						/>
 					</div>
 				</Router>
 			</div>
