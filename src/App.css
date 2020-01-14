@@ -36,6 +36,16 @@
   background-color: grey;
 }
 
+.profile-container{
+  display:flex;
+  margin:10px;
+  background-color:gray;
+}
+
+div.profile-container img{
+  width:200px;
+}
+
 .profile-picture-container,
 .campus-picture-container {
   margin: 10px 10px 0px 10px
