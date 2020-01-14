@@ -1,6 +1,7 @@
 .App {
   text-align: center;
-  background-color: #282c34;
+  /*background-color: #282c34; */
+  background-image: url(https://cdn.tourcms.com/a/11676/848/1/large.jpg);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,19 +36,19 @@
   background-color: grey;
 }
 
-.profile-container{
-  display:flex;
-  margin:10px;
-  background-color:gray;
+.profile-container {
+  display: flex;
+  margin: 10px;
+  background-color: gray;
 }
 
-div.profile-container img{
-  width:200px;
+div.profile-container img {
+  width: 200px;
 }
 
 .profile-picture-container,
 .campus-picture-container {
-  margin: 10px 10px 0px 10px
+  margin: 10px 10px 0px 10px;
 }
 
 .profile-picture,
@@ -60,5 +61,25 @@ div.profile-container img{
 .student-info,
 .campus-info {
   text-align: left;
-  margin-left: 15px
+  margin-left: 15px;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+.button {
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  background-color: #ffb97b;
+  padding: 10px;
+  margin: 10px;
+  width: 150px;
+  font-size: 20px;
+  font: "Verdana";
+}
+
+.button:hover {
+  background-color: #ff9980; /* Green */
+  color: white;
 }
