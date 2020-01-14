@@ -20,7 +20,7 @@ class App extends Component {
 						<Route exact path="/campuses" render={() => <AllCampuses />} />
 						<Route
 							exact
-							path="/students/:studentid"
+							path="/students/:studentId"
 							render={props => <SingleStudent {...props} />}
 						/>
 						<Route

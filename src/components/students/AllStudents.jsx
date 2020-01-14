@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import LinkButton from "./LinkButton";
-import StudentCard from "./StudentCard";
 import { connect } from "react-redux";
-import { getStudentsThunk } from "../actions";
+
+import LinkButton from "../utilities/LinkButton";
+import StudentCard from "./StudentCard";
+
+import { getStudentsThunk } from "../../actions";
 
 class AllStudents extends Component {
 	componentDidMount() {

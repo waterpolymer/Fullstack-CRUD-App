@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import LinkButton from "./LinkButton";
-import CampusCard from "./CampusCard";
 import { connect } from "react-redux";
-import { getCampusesThunk } from "../thunks";
+
+import LinkButton from "../utilities/LinkButton";
+import CampusCard from "./CampusCard";
+
+import { getCampusesThunk } from "../../actions";
 
 class AllCampuses extends Component {
 	componentDidMount() {

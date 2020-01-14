@@ -2,7 +2,7 @@ import {
 	GET_STUDENTS,
 	ADD_STUDENT,
 	REMOVE_STUDENT,
-	SET_STUDENT
+	GET_STUDENT
 } from "./actionTypes";
 
 const dummyStudents = [
@@ -52,6 +52,13 @@ const getStudents = students => {
 	};
 };
 
+const getStudent = student => {
+	return {
+		type: GET_STUDENT,
+		payload: student
+	};
+};
+
 export const addStudent = student => {
 	dummyStudents.push(student);
 	return {
@@ -60,12 +67,6 @@ export const addStudent = student => {
 	};
 };
 
-export const setStudent = student => {
-	return {
-		type: SET_STUDENT,
-		payload: student
-	};
-};
 export const removeStudent = studentId => {
 	return {
 		type: REMOVE_STUDENT,
@@ -78,7 +79,7 @@ export const getStudentsThunk = () => dispatch => {
 	dispatch(getStudents(arrayOfStudentsFromAPI));
 };
 
-export const setStudentThunk = studentId => dispatch => {
+export const getStudentThunk = studentId => dispatch => {
 	const student = dummyStudents.filter(item => item.id === studentId)[0];
-	dispatch(setStudent(student));
+	dispatch(getStudent(student));
 };

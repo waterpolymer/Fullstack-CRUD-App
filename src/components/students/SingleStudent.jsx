@@ -1,25 +1,26 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchStudent } from "../store/utilities/student";
-import LinkButton from "./LinkButton";
+
+import LinkButton from "../utilities/LinkButton";
+
+import { getStudentThunk } from "../../actions";
 
 class SingleStudent extends Component {
-	componentDidMount() {
-		this.props.getStudent(this.props.studentId);
+	constructor(props) {
+		super(props);
+		props.getStudent(this.props.studentId);
 	}
 
 	render() {
 		let studentInfo = null;
-		console.log(this.props.currStudent);
 		if (this.props.currStudent) {
-			let student = this.props.currStudent;
+			const student = this.props.currStudent;
 			studentInfo = (
 				<div>
 					<div>
-						<img src={student.imageUrl} alt="" />
+						<img src={student.imageUrl} width="400" alt="" />
 						<h3>
-							{" "}
-							{student.firstName} {student.LastName}{" "}
+							{student.firstName} {student.LastName}
 						</h3>
 						Email: {student.email} <br />
 						GPA: {student.gpa} <br />
@@ -29,7 +30,6 @@ class SingleStudent extends Component {
 				</div>
 			);
 		}
-
 		return <div>{studentInfo}</div>;
 	}
 }
@@ -40,7 +40,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-	getStudent: id => dispatch(fetchStudent(id))
+	getStudent: id => dispatch(getStudentThunk(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleStudent);

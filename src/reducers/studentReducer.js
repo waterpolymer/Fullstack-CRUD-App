@@ -2,7 +2,7 @@ import {
 	GET_STUDENTS,
 	ADD_STUDENT,
 	REMOVE_STUDENT,
-	SET_STUDENT
+	GET_STUDENT
 } from "../actions/actionTypes";
 
 const initialState = {
@@ -21,7 +21,7 @@ export default (state = initialState, action) => {
 				...state,
 				allStudents: [...state.allStudents, action.payload]
 			};
-		case SET_STUDENT:
+		case GET_STUDENT:
 			return {
 				...state,
 				currStudent: action.payload

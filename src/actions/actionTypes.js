@@ -1,6 +1,6 @@
 // student actions
 export const ADD_STUDENT = "ADD_STUDENT";
-export const SET_STUDENT = "SET_STUDENT";
+export const GET_STUDENT = "GET_STUDENT";
 export const REMOVE_STUDENT = "REMOVE_STUDENT";
 export const GET_STUDENTS = "GET_STUDENTS";
 

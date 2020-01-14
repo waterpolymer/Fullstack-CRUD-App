@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import AddStudentView from "./AddStudentView";
 import { connect } from "react-redux";
-import { addStudent } from "../actions";
+
+import AddStudentView from "./AddStudentView";
+
+import { addStudent } from "../../actions";
 
 class AddStudent extends Component {
 	constructor(props) {
