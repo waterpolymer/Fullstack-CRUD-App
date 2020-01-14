@@ -13,8 +13,8 @@ class AllStudents extends Component {
 		const { allStudents } = this.props;
 		let studentCards = null;
 		if (allStudents) {
-			studentCards = allStudents.map(student => (
-				<StudentCard key={student.id} student={student} />
+			studentCards = allStudents.map((student, index) => (
+				<StudentCard key={index} student={student} />
 			));
 		}
 

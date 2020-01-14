@@ -5,16 +5,15 @@ import LinkButton from "./LinkButton";
 
 class SingleStudent extends Component {
 	componentDidMount() {
-		this.props.getStudent(this.props.studentid);
-		console.log("props", this.props);
+		this.props.getStudent(this.props.studentId);
 	}
 
 	render() {
-		let s = null;
+		let studentInfo = null;
 		console.log(this.props.currStudent);
 		if (this.props.currStudent) {
 			let student = this.props.currStudent;
-			s = (
+			studentInfo = (
 				<div>
 					<div>
 						<img src={student.imageUrl} alt="" />
@@ -30,15 +29,14 @@ class SingleStudent extends Component {
 				</div>
 			);
 		}
-		console.log(this.props.currStudent);
 
-		return <div>{s}</div>;
+		return <div>{studentInfo}</div>;
 	}
 }
 
-const mapStateToProps = (state, ownProps) => ({
-	studentid: parseInt(window.location.pathname.split("/")[2]),
-	currStudent: state.studentReducer.currStudent
+const mapStateToProps = state => ({
+	studentId: parseInt(window.location.pathname.split("/")[2]),
+	currStudent: state.student.currStudent
 });
 
 const mapDispatchToProps = dispatch => ({
