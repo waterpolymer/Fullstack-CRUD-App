@@ -1,0 +1,10 @@
+.main-container {
+	text-align: center;
+	background-image: url("../static/home_background.jpg");
+	height: 91vh;
+}
+
+h1 {
+	margin-top: 0;
+	padding-top: 39.664px
+}
