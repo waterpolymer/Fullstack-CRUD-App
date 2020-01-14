@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { fetchStudent, removeStudent } from "../store/utilities/student";
 import { Link } from 'react-router-dom';
 import LinkButton from "./LinkButton";
+import NavBar from './NavBar';
 
 let dummyStudent = {
 	id: 11,

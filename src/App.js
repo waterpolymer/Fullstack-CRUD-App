@@ -8,12 +8,14 @@ import {
 } from "./components";
 import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import NavBar from './components/NavBar';
 
 class App extends Component {
 	render() {
 		return (
 			<div className="App">
 				<Router basename="">
+					<NavBar />
 					<div>
 						<Route exact path="/" render={() => <Home />} />
 						<Route exact path="/students" render={() => <AllStudents />} />
