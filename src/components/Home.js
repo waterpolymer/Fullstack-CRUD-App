@@ -1,7 +1,9 @@
 import React from "react";
-import LinkButton from "./LinkButton";
+import "./Home.css";
 
-const Home = props => {
+import LinkButton from "./utilities/LinkButton";
+
+const Home = () => {
 	return (
 		<div>
 			<h1>Hello World</h1>

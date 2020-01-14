@@ -1,12 +1,13 @@
 import React from "react";
-import LinkButton from "./LinkButton";
 
-const AddStudentView = props => {
+import LinkButton from "../utilities/LinkButton";
+
+const EditStudentView = props => {
 	const {
+		id,
 		firstName,
 		lastName,
 		email,
-		imageUrl,
 		gpa,
 		campusId,
 		handleSubmit,
@@ -15,34 +16,38 @@ const AddStudentView = props => {
 
 	return (
 		<div>
-			<h1>Add Student</h1>
+			<h1>Edit Student</h1>
 			<LinkButton to="/"> Home </LinkButton>
-			<div
+			<form
 				style={{
 					display: "flex",
 					flexDirection: "column"
 				}}
+				onSubmit={handleSubmit}
 			>
 				<div>
+					{" "}
 					first name:
 					<input
 						name="firstName"
 						type="text"
 						value={firstName}
 						onChange={handleChange}
-					/>
+					/>{" "}
 				</div>
 				<div>
-					last name:
+					{" "}
+					last name:{" "}
 					<input
 						name="lastName"
 						type="text"
 						value={lastName}
 						onChange={handleChange}
-					/>
+					/>{" "}
 				</div>
 				<div>
-					email:
+					{" "}
+					email:{" "}
 					<input
 						name="email"
 						type="email"
@@ -51,7 +56,8 @@ const AddStudentView = props => {
 					/>
 				</div>
 				<div>
-					image url:
+					{" "}
+					image url:{" "}
 					<input
 						name="imageUrl"
 						type="text"
@@ -60,11 +66,13 @@ const AddStudentView = props => {
 					/>
 				</div>
 				<div>
-					gpa:
+					{" "}
+					gpa:{" "}
 					<input name="gpa" type="text" value={gpa} onChange={handleChange} />
 				</div>
 				<div>
-					campus Id:
+					{" "}
+					campus Id:{" "}
 					<input
 						name="campusId"
 						type="text"
@@ -73,14 +81,13 @@ const AddStudentView = props => {
 					/>
 				</div>
 				<div>
-					<LinkButton to="/students" onClick={handleSubmit}>
-						Submit
-					</LinkButton>
+					{" "}
+					<input type="submit" value="submit" />
 				</div>
-			</div>
-			<LinkButton to="/students">All Students</LinkButton>
+			</form>
+			<LinkButton to={`/students/${id}`}> Return to student </LinkButton>
 		</div>
 	);
 };
 
-export default AddStudentView;
+export default EditStudentView;

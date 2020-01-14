@@ -1,15 +1,16 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import "./App.css";
+
 import {
 	Home,
 	AllStudents,
 	AddStudent,
+	EditStudent,
 	SingleStudent,
 	AllCampuses,
-	EditStudent
+	NavBar
 } from "./components";
-import "./App.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import NavBar from "./components/NavBar";
 
 class App extends Component {
 	render() {
@@ -23,7 +24,7 @@ class App extends Component {
 						<Route exact path="/campuses" render={() => <AllCampuses />} />
 						<Route
 							exact
-							path="/students/:studentid"
+							path="/students/:studentId"
 							render={props => <SingleStudent {...props} />}
 						/>
 						<Route

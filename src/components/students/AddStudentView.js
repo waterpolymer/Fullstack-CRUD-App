@@ -1,53 +1,49 @@
 import React from "react";
-import LinkButton from "./LinkButton";
+import "./student.css";
 
-const EditStudentView = props => {
+import LinkButton from "../utilities/LinkButton";
+
+const AddStudentView = props => {
 	const {
-        id,
 		firstName,
 		lastName,
 		email,
-		imageUrl,
 		gpa,
 		campusId,
 		handleSubmit,
 		handleChange
-    } = props;
+	} = props;
 
 	return (
 		<div>
-			<h1>Edit Student</h1>
+			<h1>Add Student</h1>
 			<LinkButton to="/"> Home </LinkButton>
-			<form
+			<div
 				style={{
 					display: "flex",
 					flexDirection: "column"
 				}}
-				onSubmit={handleSubmit}
 			>
 				<div>
-					{" "}
 					first name:
 					<input
 						name="firstName"
 						type="text"
 						value={firstName}
 						onChange={handleChange}
-					/>{" "}
+					/>
 				</div>
 				<div>
-					{" "}
-					last name:{" "}
+					last name:
 					<input
 						name="lastName"
 						type="text"
 						value={lastName}
 						onChange={handleChange}
-					/>{" "}
+					/>
 				</div>
 				<div>
-					{" "}
-					email:{" "}
+					email:
 					<input
 						name="email"
 						type="email"
@@ -56,8 +52,7 @@ const EditStudentView = props => {
 					/>
 				</div>
 				<div>
-					{" "}
-					image url:{" "}
+					image url:
 					<input
 						name="imageUrl"
 						type="text"
@@ -66,13 +61,11 @@ const EditStudentView = props => {
 					/>
 				</div>
 				<div>
-					{" "}
-					gpa:{" "}
+					gpa:
 					<input name="gpa" type="text" value={gpa} onChange={handleChange} />
 				</div>
 				<div>
-					{" "}
-					campus Id:{" "}
+					campus Id:
 					<input
 						name="campusId"
 						type="text"
@@ -81,13 +74,14 @@ const EditStudentView = props => {
 					/>
 				</div>
 				<div>
-					{" "}
-					<input type="submit" value="submit" />
+					<LinkButton to="/students" onClick={handleSubmit}>
+						Submit
+					</LinkButton>
 				</div>
-			</form>
-			<LinkButton to={`/students/${id}`}> Return to student </LinkButton>
+			</div>
+			<LinkButton to="/students">All Students</LinkButton>
 		</div>
 	);
 };
 
-export default EditStudentView;
+export default AddStudentView;

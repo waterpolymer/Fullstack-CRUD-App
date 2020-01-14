@@ -1,4 +1,5 @@
 import React from "react";
+import "./campus.css";
 
 const CampusCard = props => {
 	const campus = props.campus;
