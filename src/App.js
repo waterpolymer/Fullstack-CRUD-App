@@ -16,7 +16,10 @@ class App extends Component {
 		return (
 			<div className="App">
 				<Router basename="">
+<<<<<<< HEAD
 					<NavBar />
+=======
+>>>>>>> 151480daccb978fe87cdc1af8479e91c901206d5
 						<div>
 						<Route exact path="/" render={() => <Home />} />
 						<Route exact path="/students" render={() => <AllStudents />} />
