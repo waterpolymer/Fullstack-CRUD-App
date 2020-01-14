@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import "./student.css";
 
 import LinkButton from "../utilities/LinkButton";
 

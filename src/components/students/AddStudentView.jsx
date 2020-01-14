@@ -1,4 +1,5 @@
 import React from "react";
+import "./student.css";
 
 import LinkButton from "../utilities/LinkButton";
 
