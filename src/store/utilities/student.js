@@ -130,7 +130,7 @@ export const setStudent = student => {
 	};
 };
 export const removeStudent = studentId => {
-	console.log("remove");
+	console.log("removed" + studentId);
 	return {
 		type: REMOVE_STUDENT,
 		payload: studentId

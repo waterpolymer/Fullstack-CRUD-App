@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchStudent } from "../store/utilities/student";
+import { fetchStudent, removeStudent } from "../store/utilities/student";
+import { Link } from 'react-router-dom';
 import LinkButton from "./LinkButton";
+import NavBar from './NavBar';
 
 let dummyStudent = {
 	id: 11,
@@ -24,12 +26,11 @@ class SingleStudent extends Component {
 
 	render() {
 		let s = null;
-		console.log(this.props.currStudent);
 		if (this.props.currStudent) {
 			let student = this.props.currStudent;
 			s = (
 				<div>
-					<div>
+					<div className="profile-container">
 						<img src={student.imageUrl} alt="" />
 						<h3>
 							{" "}
@@ -39,11 +40,11 @@ class SingleStudent extends Component {
 						GPA: {student.gpa} <br />
 						Campus: {student.campusId}
 					</div>
+					<Link to="/students" onClick={() => this.props.removeStudent(student.id)}> Remove Student </Link>
 					<LinkButton to="/students">All Students</LinkButton>
 				</div>
 			);
 		}
-		console.log(this.props.currStudent);
 
 		return <div>{s}</div>;
 	}
@@ -55,7 +56,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-	getStudent: id => dispatch(fetchStudent(id))
+	getStudent: id => dispatch(fetchStudent(id)),
+	removeStudent: student => dispatch(removeStudent(student))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleStudent);
