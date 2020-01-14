@@ -4,7 +4,8 @@ import {
 	AllStudents,
 	AddStudent,
 	SingleStudent,
-	AllCampuses
+	AllCampuses,
+	EditStudent
 } from "./components";
 import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -16,7 +17,7 @@ class App extends Component {
 			<div className="App">
 				<Router basename="">
 					<NavBar />
-					<div>
+						<div>
 						<Route exact path="/" render={() => <Home />} />
 						<Route exact path="/students" render={() => <AllStudents />} />
 						<Route exact path="/campuses" render={() => <AllCampuses />} />
@@ -30,6 +31,10 @@ class App extends Component {
 							path="/students/add-student"
 							render={() => <AddStudent />}
 						/>
+						<Route 
+							exact 
+							path="/students/:studentid/edit-student" 
+							render={(props) => <EditStudent {...props} />}/>
 					</div>
 				</Router>
 			</div>

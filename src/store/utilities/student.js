@@ -3,6 +3,7 @@ const ADD_STUDENT = "ADD_STUDENT";
 const SET_STUDENTS = "SET_STUDENTS";
 const SET_STUDENT = "SET_STUDENT";
 const REMOVE_STUDENT = "REMOVE_STUDENT";
+const EDIT_STUDENT = "EDIT_STUDENT";
 
 const dummyStudents = [
 	{
@@ -129,6 +130,7 @@ export const setStudent = student => {
 		payload: student
 	};
 };
+
 export const removeStudent = studentId => {
 	console.log("removed" + studentId);
 	return {
@@ -137,6 +139,13 @@ export const removeStudent = studentId => {
 	};
 };
 
+export const editStudent = (student, studentid) => {
+	return{
+		type: EDIT_STUDENT,
+		payload: student,
+		id: studentid
+	}
+}
 //THUNKS, SKIP FOR NOW CAUSE WE DONT HAVE ANY ASYNCH STUFF YET LOL
 export const fetchStudentsThunk = () => dispatch => {
 	const arrayOfStudentsFromAPI = dummyStudents;
@@ -174,6 +183,14 @@ function studentReducer(state = initialState, action) {
 					student => student.id !== action.payload
 				)
 			};
+		case EDIT_STUDENT:
+			
+			const isStudentToReplace = (student) => student.id === action.id;
+			console.log(state.allStudents[state.allStudents.findIndex(isStudentToReplace)]);
+			state.allStudents[state.allStudents.findIndex(isStudentToReplace)] = action.payload;
+			dummyStudents[dummyStudents.findIndex(isStudentToReplace)] = action.payload;
+
+			return state;
 		default:
 			return state;
 	}
