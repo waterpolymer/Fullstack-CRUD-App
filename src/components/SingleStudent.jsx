@@ -17,6 +17,7 @@ class SingleStudent extends Component {
 	constructor(props) {
 		super(props);
 	}
+
 	componentDidMount() {
 		this.props.getStudent(this.props.studentid);
 		console.log("props", this.props);
@@ -40,6 +41,7 @@ class SingleStudent extends Component {
 						Campus: {student.campusId}
 					</div>
 					<LinkButton to="/students">All Students</LinkButton>
+					<LinkButton to={`/students/${student.id}/edit-student`} props={this.props}> Edit Student </LinkButton>
 				</div>
 			);
 		}
