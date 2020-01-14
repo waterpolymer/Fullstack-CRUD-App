@@ -19,8 +19,7 @@ class EditStudent extends Component {
 		};
 	}
 
-	async componentDidMount() {
-		await this.props.getStudent(this.props.studentId);
+	componentDidMount() {
 		this.setState({
 			id: this.props.currStudent.id,
 			firstName: this.props.currStudent.firstName,
@@ -31,8 +30,6 @@ class EditStudent extends Component {
 			campusId: this.props.currStudent.campusId
 		});
 	}
-
-	class;
 
 	handleChange = event => {
 		this.setState({
