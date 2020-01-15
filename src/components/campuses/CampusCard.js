@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./campus.css";
 
 const CampusCard = props => {
@@ -13,7 +14,8 @@ const CampusCard = props => {
 				></img>
 			</div>
 			<div className="campus-info">
-				<p>{`Name: ${campus.name}`}</p>
+			<Link to={"/campuses/" + campus.id}
+				>{`Name: ${campus.name}`}</Link>
 				<p>{`Campus id: ${campus.campusId}`}</p>
 			</div>
 		</div>

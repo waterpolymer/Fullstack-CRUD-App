@@ -9,6 +9,9 @@ import {
 	EditStudent,
 	SingleStudent,
 	AllCampuses,
+	AddCampus,
+	EditCampus,
+	SingleCampus,
 	NavBar
 } from "./components";
 
@@ -36,6 +39,21 @@ class App extends Component {
 							exact
 							path="/students/:studentid/edit-student"
 							render={props => <EditStudent {...props} />}
+						/>
+												<Route
+							exact
+							path="/campuses/:campusId"
+							render={props => <SingleCampus {...props} />}
+						/>
+						<Route
+							exact
+							path="/campuses/add-campus"
+							render={() => <AddCampus />}
+						/>
+						<Route
+							exact
+							path="/campuses/:campusid/edit-campus"
+							render={props => <EditCampus {...props} />}
 						/>
 					</div>
 				</Router>

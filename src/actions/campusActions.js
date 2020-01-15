@@ -1,4 +1,4 @@
-import { ADD_CAMPUS, REMOVE_CAMPUS, GET_CAMPUSES } from "./actionTypes";
+import { ADD_CAMPUS, REMOVE_CAMPUS, GET_CAMPUSES, GET_CAMPUS, EDIT_CAMPUS } from "./actionTypes";
 
 const dummyCampuses = [
 	{
@@ -26,6 +26,13 @@ const getCampuses = campuses => {
 	};
 };
 
+const getCampus = campus => {
+	return {
+		type: GET_CAMPUS,
+		payload: campus
+	}
+}
+
 export const addCampus = campus => {
 	dummyCampuses.push(campus);
 	return {
@@ -34,7 +41,21 @@ export const addCampus = campus => {
 	};
 };
 
+export const editCampus = (campus, campusId) => {
+	const oldCampus = dummyCampuses.find(s => s.id === campusId);
+	const oldCampusIndex = dummyCampuses.indexOf(oldCampus);
+	dummyCampuses[oldCampusIndex] = campus;
+	return {
+		type: EDIT_CAMPUS,
+		payload: campus,
+		campusId: campusId
+	};
+};
+
 export const removeCampus = campusId => {
+	const oldCampus = dummyCampuses.find(s => s.id === campusId);
+	const oldCampusIndex = dummyCampuses.indexOf(oldCampus);
+	dummyCampuses.splice(oldCampusIndex, 1);
 	return {
 		type: REMOVE_CAMPUS,
 		payload: campusId
@@ -44,4 +65,9 @@ export const removeCampus = campusId => {
 export const getCampusesThunk = () => dispatch => {
 	const arrayOfCampusesFromAPI = dummyCampuses;
 	dispatch(getCampuses(arrayOfCampusesFromAPI));
+};
+
+export const getCampusThunk = campusId => dispatch => {
+	const campus = dummyCampuses.filter(item => item.id === campusId)[0];
+	dispatch(getCampus(campus));
 };

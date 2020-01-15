@@ -2,14 +2,12 @@ import React from "react";
 
 import LinkButton from "../utilities/LinkButton";
 
-const EditStudentView = props => {
+const EditCampusView = props => {
 	const {
 		id,
-		firstName,
-		lastName,
-		email,
-		gpa,
-		imageUrl,
+		name,
+        email,
+        imageUrl,
 		campusId,
 		handleSubmit,
 		handleChange
@@ -17,7 +15,7 @@ const EditStudentView = props => {
 
 	return (
 		<div>
-			<h1>Edit Student</h1>
+			<h1>Edit Campus</h1>
 			<LinkButton to="/"> Home </LinkButton>
 			<form
 				style={{
@@ -28,21 +26,11 @@ const EditStudentView = props => {
 			>
 				<div>
 					{" "}
-					first name:
+					name:
 					<input
-						name="firstName"
+						name="name"
 						type="text"
-						value={firstName}
-						onChange={handleChange}
-					/>{" "}
-				</div>
-				<div>
-					{" "}
-					last name:{" "}
-					<input
-						name="lastName"
-						type="text"
-						value={lastName}
+						value={name}
 						onChange={handleChange}
 					/>{" "}
 				</div>
@@ -68,11 +56,6 @@ const EditStudentView = props => {
 				</div>
 				<div>
 					{" "}
-					gpa:{" "}
-					<input name="gpa" type="text" value={gpa} onChange={handleChange} />
-				</div>
-				<div>
-					{" "}
 					campus Id:{" "}
 					<input
 						name="campusId"
@@ -86,9 +69,9 @@ const EditStudentView = props => {
 					<input type="submit" value="submit" />
 				</div>
 			</form>
-			<LinkButton to={`/students/${id}`}> Return to student </LinkButton>
+			<LinkButton to={`/campuses/${id}`}> Return to campuses </LinkButton>
 		</div>
 	);
 };
 
-export default EditStudentView;
+export default EditCampusView;
