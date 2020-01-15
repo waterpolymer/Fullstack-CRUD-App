@@ -1,13 +1,13 @@
 .App {
-	text-align: center;
-	background-color: #A9A9A9;
-	min-height: 100vh;
+  text-align: center;
+  background-color: #a9a9a9;
+  min-height: 100vh;
 }
 
 h1 {
-	font-size: 3.7em;
-	font-family: Trebuchet MS;
-	font-style: oblique;
-	color: #ee818e;
-	text-shadow: 2px 2px 4px #e8e8e8;
+  font-size: 3.7em;
+  font-family: Trebuchet MS;
+  font-style: oblique;
+  color: #ee818e;
+  text-shadow: 2px 2px 4px black;
 }
