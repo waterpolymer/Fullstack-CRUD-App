@@ -1,7 +1,9 @@
 import {
 	GET_CAMPUSES,
 	ADD_CAMPUS,
-	REMOVE_CAMPUS
+	REMOVE_CAMPUS,
+	EDIT_CAMPUS,
+	GET_CAMPUS
 } from "../actions/actionTypes";
 
 const initialState = {
@@ -26,6 +28,22 @@ export default (state = initialState, action) => {
 				allCampuses: state.allCampuses.filter(
 					campus => campus.id !== action.payload
 				)
+			};
+		case EDIT_CAMPUS:
+			return {
+				...state,
+				allCampuses: state.allCampuses.map((item, index) => {
+					if (item.id === action.campusId) {
+						return action.payload;
+					}
+					return item;
+				}),
+				currCampus: action.payload
+			};
+		case GET_CAMPUS:
+			return {
+				...state,
+				currCampus: action.payload
 			};
 		default:
 			return state;

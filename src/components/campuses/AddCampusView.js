@@ -1,54 +1,39 @@
 import React from "react";
+import "./campus.css";
 
 import LinkButton from "../utilities/LinkButton";
 
-const EditStudentView = props => {
+const AddCampusView = props => {
 	const {
-		id,
-		firstName,
-		lastName,
+		name,
 		email,
-		gpa,
-		imageUrl,
 		campusId,
+		imageUrl,
 		handleSubmit,
 		handleChange
 	} = props;
 
 	return (
 		<div>
-			<h1>Edit Student</h1>
+			<h1>Add campus</h1>
 			<LinkButton to="/"> Home </LinkButton>
-			<form
+			<div
 				style={{
 					display: "flex",
 					flexDirection: "column"
 				}}
-				onSubmit={handleSubmit}
 			>
 				<div>
-					{" "}
-					first name:
+					name:
 					<input
-						name="firstName"
+						name="name"
 						type="text"
-						value={firstName}
+						value={name}
 						onChange={handleChange}
-					/>{" "}
+					/>
 				</div>
 				<div>
-					{" "}
-					last name:{" "}
-					<input
-						name="lastName"
-						type="text"
-						value={lastName}
-						onChange={handleChange}
-					/>{" "}
-				</div>
-				<div>
-					{" "}
-					email:{" "}
+					email:
 					<input
 						name="email"
 						type="email"
@@ -57,8 +42,7 @@ const EditStudentView = props => {
 					/>
 				</div>
 				<div>
-					{" "}
-					image url:{" "}
+					image url:
 					<input
 						name="imageUrl"
 						type="text"
@@ -67,13 +51,7 @@ const EditStudentView = props => {
 					/>
 				</div>
 				<div>
-					{" "}
-					gpa:{" "}
-					<input name="gpa" type="text" value={gpa} onChange={handleChange} />
-				</div>
-				<div>
-					{" "}
-					campus Id:{" "}
+					campus Id:
 					<input
 						name="campusId"
 						type="text"
@@ -82,13 +60,14 @@ const EditStudentView = props => {
 					/>
 				</div>
 				<div>
-					{" "}
-					<input type="submit" value="submit" />
+					<LinkButton to="/campuses" onClick={handleSubmit}>
+						Submit
+					</LinkButton>
 				</div>
-			</form>
-			<LinkButton to={`/students/${id}`}> Return to student </LinkButton>
+			</div>
+			<LinkButton to="/campuses">All Campuses</LinkButton>
 		</div>
 	);
 };
 
-export default EditStudentView;
+export default AddCampusView;

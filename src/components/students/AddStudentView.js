@@ -9,6 +9,7 @@ const AddStudentView = props => {
 		lastName,
 		email,
 		gpa,
+		imageUrl,
 		campusId,
 		handleSubmit,
 		handleChange
@@ -56,7 +57,7 @@ const AddStudentView = props => {
 					<input
 						name="imageUrl"
 						type="text"
-						value="https://i.stack.imgur.com/l60Hf.png"
+						value={imageUrl}
 						onChange={handleChange}
 					/>
 				</div>

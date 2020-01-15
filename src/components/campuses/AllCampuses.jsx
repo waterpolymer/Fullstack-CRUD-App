@@ -26,7 +26,7 @@ class AllCampuses extends Component {
 				<h1>All Campuses</h1>
 				<LinkButton to="/">Home</LinkButton>
 				<div className="campus-card-container">{campusesCards}</div>
-				<button type="button">Add Campus</button>
+				<LinkButton to="/campuses/add-campus">Add Campus</LinkButton>
 			</div>
 		);
 	}

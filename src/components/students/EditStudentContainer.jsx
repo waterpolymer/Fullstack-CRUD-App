@@ -25,7 +25,7 @@ class EditStudent extends Component {
 			firstName: this.props.currStudent.firstName,
 			lastName: this.props.currStudent.lastName,
 			email: this.props.currStudent.email,
-			imageUrl: "https://i.stack.imgur.com/l60Hf.png",
+			imageUrl: this.props.currStudent.imageUrl,
 			gpa: this.props.currStudent.gpa,
 			campusId: this.props.currStudent.campusId
 		});
