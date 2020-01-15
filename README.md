@@ -6,7 +6,7 @@ Group: Jordan Yaqoob, Kendrick Shao, Kun Yu, Sami Beig
 
 ## Running
 
-Use the package manager npm to install all prerequiste packages and start.
+Use the package manager npm to install all prerequisite packages and start.
 
 ```bash
 npm install
