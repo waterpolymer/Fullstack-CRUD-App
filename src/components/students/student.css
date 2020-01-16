@@ -1,38 +1,102 @@
 .all-students-container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .student-card-container {
-	display: flex;
-	flex-direction: row;
-	margin-top: 50px;
-	margin-bottom: 50px;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .student-card {
-	display: flex;
-	flex-direction: column;
-	margin: 10px;
-	background-color: white;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  background-color: white;
 }
 
 .profile-picture-container {
-	margin: 10px 10px 0px 10px
+  margin: 10px 10px 0px 10px;
 }
 
 .profile-picture {
-	border: 1px solid #000;
-	max-width: 200px;
-	max-height: 200px;
+  border: 1px solid #000;
+  max-width: 200px;
+  max-height: 200px;
 }
 
 .student-info {
-	text-align: left;
-	margin-left: 15px
+  text-align: left;
+  margin-left: 15px;
+}
+
+.input {
+  width: 85%;
+  max-width: 600px;
+  background: #f1f1f1;
+  box-sizing: border-box;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 0 20px #000000b3;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.box {
+  border: 1px solid grey;
+  margin: 8px 0;
+  padding: 12px 18px;
+  border-radius: 8px;
+  display: block;
+  text-align: left;
+  color: #333;
+  font-size: 14px;
+}
+
+.test {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button {
+  margin: 20px;
+  background-color: #ee818e; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.button:hover {
+  background-color: #8b423e; /* Green */
+  color: white;
+}
+
+.returnButton {
+  margin-top: 10px;
+}
+
+img {
+  margin-top: 25px;
+}
+
+div.input {
+  margin: auto;
 }
