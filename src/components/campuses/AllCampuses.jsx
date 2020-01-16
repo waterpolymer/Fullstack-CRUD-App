@@ -15,7 +15,10 @@ class AllCampuses extends Component {
 	render() {
 		const { allCampuses } = this.props;
 		let campusesCards = null;
-		if (allCampuses) {
+
+		if(allCampuses !== undefined && allCampuses.length === 0){
+			campusesCards = <div> No campuses currently listed </div>
+		}else if (allCampuses) {
 			campusesCards = allCampuses.map(campus => (
 				<CampusCard key={campus.id} campus={campus} />
 			));
@@ -24,20 +27,19 @@ class AllCampuses extends Component {
 		return (
 			<div className="all-campuses-container">
 				<h1>All Campuses</h1>
-				<LinkButton to="/">Home</LinkButton>
 				<div className="campus-card-container">{campusesCards}</div>
-				<LinkButton to="/campuses/add-campus">Add Campus</LinkButton>
+				<LinkButton class="button" to="/campuses/add-campus">Add Campus</LinkButton>
 			</div>
 		);
 	}
 }
 
 const mapStateToProps = state => ({
-	allCampuses: state.campus.allCampuses
+  allCampuses: state.campus.allCampuses
 });
 
 const mapDispatchToProps = dispatch => ({
-	getAllCampuses: () => dispatch(getCampusesThunk())
+  getAllCampuses: () => dispatch(getCampusesThunk())
 });
 
 // export default AllCampuses;

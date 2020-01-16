@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from 'react-router'
 
 import EditCampusView from "./EditCampusView";
 
@@ -13,19 +14,22 @@ class EditCampus extends Component {
 			name: "",
 			email: "",
 			imageUrl: "https://s3.amazonaws.com/freestock-prod/450/freestock_565622158.jpg",
-			campusId: ""
+			campusId: "",
 		};
 	}
 
 	componentDidMount() {
-		this.setState({
-			id: this.props.currCampus.id,
-			name: this.props.currCampus.name,
-			email: this.props.currCampus.email,
-			imageUrl: this.props.currCampus.imageUrl,
-			gpa: this.props.currCampus.gpa,
-			campusId: this.props.currCampus.campusId
-		});
+		//Error check if user attmepts to edit non existant campus
+		if(this.props.currCampus !== undefined){
+			this.setState({
+				id: this.props.currCampus.id,
+				name: this.props.currCampus.name,
+				email: this.props.currCampus.email,
+				imageUrl: this.props.currCampus.imageUrl,
+				gpa: this.props.currCampus.gpa,
+				campusId: this.props.currCampus.campusId
+			});
+		}
 	}
 
 	handleChange = event => {
@@ -45,9 +49,18 @@ class EditCampus extends Component {
 		};
 
 		this.props.editCampus(campus, this.state.id);
+		this.props.history.push('.')
 	};
 
 	render() {
+		//PLEASE STYLE ME
+		if(this.props.currCampus === undefined){
+			return (<div>
+				This campus does not exist
+			</div>)
+		}
+
+
 		return (
 			<div>
 				<EditCampusView
@@ -80,4 +93,4 @@ const mapDispatch = dispatch => {
 	};
 };
 
-export default connect(mapState, mapDispatch)(EditCampus);
+export default connect(mapState, mapDispatch)(withRouter(EditCampus));

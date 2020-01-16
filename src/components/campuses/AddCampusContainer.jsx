@@ -1,19 +1,22 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router";
 
 import AddCampusView from "./AddCampusView";
 
 import { addCampus } from "../../actions";
+
+//MUST GENERATE CAMPUS ID SOMEHOW
 
 class AddCampus extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			id: 20,
-			name: "Hunter",
-			email: "Hunter@test.com",
-			imageUrl: "https://s3.amazonaws.com/freestock-prod/450/freestock_565622158.jpg",
-			campusId: "20"
+			name: "",
+			email: "",
+			imageUrl: "",
+			campusId: "",
 		};
 	}
 
@@ -21,6 +24,7 @@ class AddCampus extends Component {
 		this.setState({
 			[event.target.name]: event.target.value
 		});
+
 	};
 
 	handleSubmit = event => {
@@ -34,6 +38,7 @@ class AddCampus extends Component {
 		};
 		this.props.addCampus(campus);
 		console.log(this.props.allCampuses);
+		this.props.history.push('.')
 	};
 
 	render() {
@@ -64,4 +69,4 @@ const mapDispatch = dispatch => {
 	};
 };
 
-export default connect(mapState, mapDispatch)(AddCampus);
+export default connect(mapState, mapDispatch)(withRouter(AddCampus));

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router";
 
 import AddStudentView from "./AddStudentView";
 
@@ -10,12 +11,12 @@ class AddStudent extends Component {
 		super(props);
 		this.state = {
 			id: 20,
-			firstName: "flamming",
-			lastName: "dumpster",
-			email: "test@test.com",
-			imageUrl: "https://i.stack.imgur.com/l60Hf.png",
-			gpa: "4.0",
-			campusId: "20"
+			firstName: "",
+			lastName: "",
+			email: "",
+			imageUrl: "",
+			gpa: "",
+			campusId: ""
 		};
 	}
 
@@ -38,6 +39,7 @@ class AddStudent extends Component {
 		};
 		this.props.addStudent(student);
 		console.log(this.props.allStudents);
+		this.props.history.push('.');
 	};
 
 	render() {
@@ -71,4 +73,4 @@ const mapDispatch = dispatch => {
 	};
 };
 
-export default connect(mapState, mapDispatch)(AddStudent);
+export default connect(mapState, mapDispatch)(withRouter(AddStudent));
