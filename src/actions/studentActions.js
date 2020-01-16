@@ -6,44 +6,7 @@ import {
 	GET_STUDENT
 } from "./actionTypes";
 
-const dummyStudents = [
-	{
-		id: 1,
-		firstName: "bob",
-		lastName: "jones",
-		email: "bobbyboy1234@yahoo.com",
-		imageUrl: "https://i.stack.imgur.com/l60Hf.png",
-		gpa: 3.7,
-		campusId: 1
-	},
-	{
-		id: 2,
-		firstName: "bob2",
-		lastName: "jones",
-		email: "bobbyboy1234@yahoo.com",
-		imageUrl: "https://i.stack.imgur.com/l60Hf.png",
-		gpa: 3.7,
-		campusId: 1
-	},
-	{
-		id: 3,
-		firstName: "bob3",
-		lastName: "jones",
-		email: "bobbyboy1234@yahoo.com",
-		imageUrl: "https://i.stack.imgur.com/l60Hf.png",
-		gpa: 3.7,
-		campusId: 2
-	},
-	{
-		id: 4,
-		firstName: "bob4",
-		lastName: "jones",
-		email: "bobbyboy1234@yahoo.com",
-		imageUrl: "https://i.stack.imgur.com/l60Hf.png",
-		gpa: 3.7,
-		campusId: 2
-	}
-];
+import axios from "axios";
 
 // Action creator
 const getStudents = students => {
@@ -60,18 +23,14 @@ const getStudent = student => {
 	};
 };
 
-export const addStudent = student => {
-	dummyStudents.push(student);
+const addStudent = student => {
 	return {
 		type: ADD_STUDENT,
 		payload: student
 	};
 };
 
-export const editStudent = (student, studentId) => {
-	const oldStudent = dummyStudents.find(s => s.id === studentId);
-	const oldStudentIndex = dummyStudents.indexOf(oldStudent);
-	dummyStudents[oldStudentIndex] = student;
+const editStudent = (student, studentId) => {
 	return {
 		type: EDIT_STUDENT,
 		payload: student,
@@ -79,22 +38,55 @@ export const editStudent = (student, studentId) => {
 	};
 };
 
-export const removeStudent = studentId => {
-	const oldStudent = dummyStudents.find(s => s.id === studentId);
-	const oldStudentIndex = dummyStudents.indexOf(oldStudent);
-	dummyStudents.splice(oldStudentIndex, 1);
+const removeStudent = studentId => {
 	return {
 		type: REMOVE_STUDENT,
 		payload: studentId
 	};
 };
 
-export const getStudentsThunk = () => dispatch => {
-	const arrayOfStudentsFromAPI = dummyStudents;
-	dispatch(getStudents(arrayOfStudentsFromAPI));
+// Thunks
+export const getStudentsThunk = () => async dispatch => {
+	try {
+		const res = await axios.get("/api/students");
+		dispatch(getStudents(res.data));
+	} catch (err) {
+		console.log(err);
+	}
 };
 
-export const getStudentThunk = studentId => dispatch => {
-	const student = dummyStudents.filter(item => item.id === studentId)[0];
-	dispatch(getStudent(student));
+export const getStudentThunk = studentId => async dispatch => {
+	try {
+		const res = await axios.get(`/api/students/${studentId}`);
+		dispatch(getStudent(res.data));
+	} catch (err) {
+		console.log(err);
+	}
+};
+
+export const addStudentThunk = student => async dispatch => {
+	try {
+		await axios.post("/api/students", student);
+		dispatch(addStudent(student));
+	} catch (err) {
+		console.log(err);
+	}
+};
+
+export const editStudentThunk = (student, studentId) => async dispatch => {
+	try {
+		const res = await axios.put(`/api/students/${studentId}`, student);
+		dispatch(editStudent(res.data));
+	} catch (err) {
+		console.log(err);
+	}
+};
+
+export const removeStudentThunk = studentId => async dispatch => {
+	try {
+		await axios.delete(`/api/students/${studentId}`);
+		dispatch(removeStudent(studentId));
+	} catch (err) {
+		console.log(err);
+	}
 };
