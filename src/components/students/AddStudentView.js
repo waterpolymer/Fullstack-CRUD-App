@@ -16,7 +16,7 @@ const AddStudentView = props => {
 	} = props;
 
 	return (
-		<>
+		<div>
 			<div>
 				<h1>Add Student</h1>
 			</div>
@@ -29,7 +29,6 @@ const AddStudentView = props => {
 					onSubmit={handleSubmit}
 				>
 					<div>
-						{" "}
 						First name:
 						<input
 							className="box"
@@ -38,11 +37,10 @@ const AddStudentView = props => {
 							value={firstName}
 							onChange={handleChange}
 							required
-						/>{" "}
+						/>
 					</div>
 					<div>
-						{" "}
-						Last name:{" "}
+						Last name:
 						<input
 							className="box"
 							name="lastName"
@@ -50,11 +48,10 @@ const AddStudentView = props => {
 							value={lastName}
 							onChange={handleChange}
 							required
-						/>{" "}
+						/>
 					</div>
 					<div>
-						{" "}
-						Email:{" "}
+						Email:
 						<input
 							className="box"
 							name="email"
@@ -65,20 +62,17 @@ const AddStudentView = props => {
 						/>
 					</div>
 					<div>
-						{" "}
-						Image URL:{" "}
+						Image URL:
 						<input
 							className="box"
 							name="imageUrl"
 							type="text"
 							value={imageUrl}
 							onChange={handleChange}
-							required
 						/>
 					</div>
 					<div>
-						{" "}
-						GPA:{" "}
+						GPA:
 						<input
 							className="box"
 							name="gpa"
@@ -89,29 +83,25 @@ const AddStudentView = props => {
 						/>
 					</div>
 					<div>
-						{" "}
-						Campus ID:{" "}
+						Campus ID:
 						<input
 							className="box"
 							name="campusId"
 							type="text"
 							value={campusId}
 							onChange={handleChange}
-							required
 						/>
 					</div>
 					<div>
-						{" "}
 						<input className="box" type="submit" value="Submit" id="submit" />
 					</div>
 				</form>
 			</div>
 
 			<LinkButton className="button" to={"/students/"}>
-				{" "}
-				Return to student{" "}
+				Return to student
 			</LinkButton>
-		</>
+		</div>
 	);
 };
 

@@ -64,9 +64,21 @@ export const getStudentThunk = studentId => async dispatch => {
 	}
 };
 
+// https://stackoverflow.com/questions/34698905/how-can-i-clone-a-javascript-object-except-for-one-key
+const objectWithoutKey = (object, key) => {
+	const { [key]: deletedKey, ...otherKeys } = object;
+	return otherKeys;
+};
+
 export const addStudentThunk = student => async dispatch => {
 	try {
-		await axios.post("/api/students", student);
+		// checks if student has campusId, if not passes student object without campusId key
+		let apiStudent = student;
+		if (!student.campusId) {
+			apiStudent = objectWithoutKey(student, "campusId");
+		}
+
+		await axios.post("/api/students", apiStudent);
 		dispatch(addStudent(student));
 	} catch (err) {
 		console.log(err);

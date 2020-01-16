@@ -13,7 +13,8 @@ class AddStudent extends Component {
 			firstName: "",
 			lastName: "",
 			email: "",
-			imageUrl: "",
+			imageUrl:
+				"https://www.jennstrends.com/wp-content/uploads/2013/10/bad-profile-pic-2-768x768.jpeg",
 			gpa: "",
 			campusId: ""
 		};
