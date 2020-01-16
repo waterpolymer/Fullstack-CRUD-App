@@ -19,6 +19,8 @@ const dummyCampuses = [
 	}
 ];
 
+// const dummyCampuses = [];
+
 const getCampuses = campuses => {
 	return {
 		type: GET_CAMPUSES,

@@ -13,25 +13,44 @@ class EditCampus extends Component {
 			name: "",
 			email: "",
 			imageUrl: "https://s3.amazonaws.com/freestock-prod/450/freestock_565622158.jpg",
-			campusId: ""
+			campusId: "",
+			canSubmit: true
 		};
 	}
 
 	componentDidMount() {
-		this.setState({
-			id: this.props.currCampus.id,
-			name: this.props.currCampus.name,
-			email: this.props.currCampus.email,
-			imageUrl: this.props.currCampus.imageUrl,
-			gpa: this.props.currCampus.gpa,
-			campusId: this.props.currCampus.campusId
-		});
+		//Error check if user attmepts to edit non existant campus
+		if(this.props.currCampus !== undefined){
+			this.setState({
+				id: this.props.currCampus.id,
+				name: this.props.currCampus.name,
+				email: this.props.currCampus.email,
+				imageUrl: this.props.currCampus.imageUrl,
+				gpa: this.props.currCampus.gpa,
+				campusId: this.props.currCampus.campusId
+			});
+		}
 	}
 
 	handleChange = event => {
 		this.setState({
 			[event.target.name]: event.target.value
 		});
+		
+		//assumes true
+		let canSubmitValue = true;
+
+		for(let key in this.state){
+			if((key === event.target.name && event.target.value === "") || this.state[key] === "" ||
+			(event.target.name === "email" && !event.target.value.match(/.+@.+/))){
+					canSubmitValue = false;
+					break;
+			}
+		}
+
+		this.setState({
+			canSubmit: canSubmitValue
+		})
 	};
 
 	handleSubmit = event => {
@@ -48,6 +67,14 @@ class EditCampus extends Component {
 	};
 
 	render() {
+		//PLEASE STYLE ME
+		if(this.props.currCampus === undefined){
+			return (<div>
+				This campus does not exist
+			</div>)
+		}
+
+
 		return (
 			<div>
 				<EditCampusView
@@ -59,6 +86,7 @@ class EditCampus extends Component {
 					campusId={this.state.campusId}
 					handleSubmit={this.handleSubmit}
 					handleChange={this.handleChange}
+					canSubmit={this.canSubmit}
 				/>
 			</div>
 		);
