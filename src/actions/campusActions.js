@@ -74,11 +74,10 @@ export const removeCampus = campusId => {
 // Thunks
 export const getCampusesThunk = () => async dispatch => {
 	const res = await axios.get("/api/campuses");
-	console.log(res.data);
 	dispatch(getCampuses(res.data));
 };
 
-export const getCampusThunk = campusId => dispatch => {
-	const campus = dummyCampuses.filter(item => item.id === campusId)[0];
-	dispatch(getCampus(campus));
+export const getCampusThunk = campusId => async dispatch => {
+	const res = await axios.get(`/api/campuses/${campusId}`);
+	dispatch(getCampus(res.data));
 };

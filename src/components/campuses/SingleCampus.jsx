@@ -23,7 +23,7 @@ class SingleCampus extends Component {
 						<img src={campus.imageUrl} width="400" alt="" />
 						<h3>{campus.name}</h3>
 						Email: {campus.email} <br />
-						Campus: {campus.campusId}
+						Campus: {campus.id}
 					</div>
 					<Link
 						className="button"
