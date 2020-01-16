@@ -4,7 +4,7 @@ import { withRouter } from "react-router";
 
 import AddStudentView from "./AddStudentView";
 
-import { addStudent } from "../../actions";
+import { addStudentThunk } from "../../actions";
 
 class AddStudent extends Component {
 	constructor(props) {
@@ -39,7 +39,7 @@ class AddStudent extends Component {
 		};
 		this.props.addStudent(student);
 		console.log(this.props.allStudents);
-		this.props.history.push('.');
+		this.props.history.push(".");
 	};
 
 	render() {
@@ -69,7 +69,7 @@ const mapState = state => {
 
 const mapDispatch = dispatch => {
 	return {
-		addStudent: student => dispatch(addStudent(student))
+		addStudent: student => dispatch(addStudentThunk(student))
 	};
 };
 

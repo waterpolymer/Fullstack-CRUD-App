@@ -15,10 +15,10 @@ class AllStudents extends Component {
 	render() {
 		const { allStudents } = this.props;
 		let studentCards = null;
-		if(allStudents !== undefined && allStudents.length === 0){
+		if (allStudents !== undefined && allStudents.length === 0) {
 			//SOMEONE STYLE ME WHEN THERE ARE NO COMPUSES
-			studentCards = <div> No students currently listed </div>
-		}else if (allStudents) {
+			studentCards = <div> No students currently listed </div>;
+		} else if (allStudents) {
 			studentCards = allStudents.map((student, index) => (
 				<StudentCard key={index} student={student} />
 			));
@@ -28,18 +28,20 @@ class AllStudents extends Component {
 			<div className="all-students-container">
 				<h1>All Students</h1>
 				<div className="student-card-container">{studentCards}</div>
-				<LinkButton class="button" to="/students/add-student">Add Student</LinkButton>
+				<LinkButton className="button" to="/students/add-student">
+					Add Student
+				</LinkButton>
 			</div>
 		);
 	}
 }
 
 const mapStateToProps = state => ({
-  allStudents: state.student.allStudents
+	allStudents: state.student.allStudents
 });
 
 const mapDispatchToProps = dispatch => ({
-  getAllStudents: () => dispatch(getStudentsThunk())
+	getAllStudents: () => dispatch(getStudentsThunk())
 });
 
 // export default AllStudents;
