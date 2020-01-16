@@ -103,7 +103,7 @@ const EditStudentView = props => {
           </div>
           <div>
             {" "}
-            <input class="box" type="submit" value="Submit" class="submit" />
+            <input class="box" type="submit" value="Submit" id="submit" />
           </div>
         </form>
       </div>

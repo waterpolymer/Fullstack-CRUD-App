@@ -64,7 +64,7 @@ const AddCampusView = props => {
             />
           </div>
           <div>
-            <input class="submit" type="submit"></input>
+            <input class="submit" id="submit"></input>
           </div>
         </form>
       </div>
