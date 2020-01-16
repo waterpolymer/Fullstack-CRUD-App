@@ -99,3 +99,22 @@ div.input {
   color: #8b423e;
   font-size: 25px;
 }
+
+.submit {
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #ab514c;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 6px #999;
+}
+
+.submit:hover {
+  background-color: #783936;
+}

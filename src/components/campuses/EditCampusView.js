@@ -76,7 +76,7 @@ const EditCampusView = props => {
             </div>
             <div>
               {" "}
-              <input type="submit" value="submit" />
+              <input type="submit" value="Submit" class="submit" />
             </div>
           </form>
         </div>
