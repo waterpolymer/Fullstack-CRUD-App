@@ -4,7 +4,7 @@ import { withRouter } from "react-router";
 
 import AddStudentView from "./AddStudentView";
 
-import { addStudentThunk } from "../../actions";
+import { addStudentThunk, getCampusesThunk } from "../../actions";
 
 class AddStudent extends Component {
 	constructor(props) {
@@ -18,6 +18,10 @@ class AddStudent extends Component {
 			gpa: "",
 			campusId: ""
 		};
+		// get data for dropdown
+		if (props.allCampuses.length === 0) {
+			props.getAllCampuses();
+		}
 	}
 
 	handleChange = event => {
@@ -37,7 +41,6 @@ class AddStudent extends Component {
 			campusId: this.state.campusId
 		};
 		this.props.addStudent(student);
-		console.log(this.props.allStudents);
 		this.props.history.push(".");
 	};
 
@@ -62,13 +65,15 @@ class AddStudent extends Component {
 
 const mapState = state => {
 	return {
-		allStudents: state.student.allStudents
+		allStudents: state.student.allStudents,
+		allCampuses: state.campus.allCampuses
 	};
 };
 
 const mapDispatch = dispatch => {
 	return {
-		addStudent: student => dispatch(addStudentThunk(student))
+		addStudent: student => dispatch(addStudentThunk(student)),
+		getAllCampuses: () => dispatch(getCampusesThunk())
 	};
 };
 
