@@ -15,7 +15,8 @@ class AddCampus extends Component {
 			name: "",
 			email: "",
 			location: "",
-			imageUrl: ""
+			imageUrl:
+				"https://s29068.pcdn.co/wp-content/uploads/hunter-new-york-city-street-view.jpg"
 		};
 	}
 
