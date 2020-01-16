@@ -5,7 +5,7 @@ import "./campus.css";
 
 import LinkButton from "../utilities/LinkButton";
 
-import { getCampusThunk, removeCampus } from "../../actions";
+import { getCampusThunk, removeCampusThunk } from "../../actions";
 
 class SingleCampus extends Component {
 	constructor(props) {
@@ -55,7 +55,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
 	getCampus: id => dispatch(getCampusThunk(id)),
-	removeCampus: campus => dispatch(removeCampus(campus))
+	removeCampus: campus => dispatch(removeCampusThunk(campus))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleCampus);

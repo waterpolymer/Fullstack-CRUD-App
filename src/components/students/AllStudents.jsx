@@ -8,8 +8,9 @@ import StudentCard from "./StudentCard";
 import { getStudentsThunk } from "../../actions";
 
 class AllStudents extends Component {
-	componentDidMount() {
-		this.props.getAllStudents();
+	constructor(props) {
+		super(props);
+		props.getAllStudents();
 	}
 
 	render() {

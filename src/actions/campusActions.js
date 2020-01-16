@@ -8,25 +8,6 @@ import {
 
 import axios from "axios";
 
-const dummyCampuses = [
-	{
-		id: 1,
-		name: "campus1",
-		email: "campus1@yahoo.com",
-		imageUrl:
-			"https://s3.amazonaws.com/freestock-prod/450/freestock_565622158.jpg",
-		campusId: 1
-	},
-	{
-		id: 2,
-		name: "campus2",
-		email: "campus2@yahoo.com",
-		imageUrl:
-			"https://s3.amazonaws.com/freestock-prod/450/freestock_565622158.jpg",
-		campusId: 2
-	}
-];
-
 // Actions
 const getCampuses = campuses => {
 	return {
@@ -42,18 +23,14 @@ const getCampus = campus => {
 	};
 };
 
-export const addCampus = campus => {
-	dummyCampuses.push(campus);
+const addCampus = campus => {
 	return {
 		type: ADD_CAMPUS,
 		payload: campus
 	};
 };
 
-export const editCampus = (campus, campusId) => {
-	const oldCampus = dummyCampuses.find(s => s.id === campusId);
-	const oldCampusIndex = dummyCampuses.indexOf(oldCampus);
-	dummyCampuses[oldCampusIndex] = campus;
+const editCampus = (campus, campusId) => {
 	return {
 		type: EDIT_CAMPUS,
 		payload: campus,
@@ -61,10 +38,7 @@ export const editCampus = (campus, campusId) => {
 	};
 };
 
-export const removeCampus = campusId => {
-	const oldCampus = dummyCampuses.find(s => s.id === campusId);
-	const oldCampusIndex = dummyCampuses.indexOf(oldCampus);
-	dummyCampuses.splice(oldCampusIndex, 1);
+const removeCampus = campusId => {
 	return {
 		type: REMOVE_CAMPUS,
 		payload: campusId
@@ -73,11 +47,46 @@ export const removeCampus = campusId => {
 
 // Thunks
 export const getCampusesThunk = () => async dispatch => {
-	const res = await axios.get("/api/campuses");
-	dispatch(getCampuses(res.data));
+	try {
+		const res = await axios.get("/api/campuses");
+		dispatch(getCampuses(res.data));
+	} catch (err) {
+		console.log(err);
+	}
 };
 
 export const getCampusThunk = campusId => async dispatch => {
-	const res = await axios.get(`/api/campuses/${campusId}`);
-	dispatch(getCampus(res.data));
+	try {
+		const res = await axios.get(`/api/campuses/${campusId}`);
+		dispatch(getCampus(res.data));
+	} catch (err) {
+		console.log(err);
+	}
+};
+
+export const addCampusThunk = campus => async dispatch => {
+	try {
+		await axios.post("/api/campuses", campus);
+		dispatch(addCampus(campus));
+	} catch (err) {
+		console.log(err);
+	}
+};
+
+export const editCampusThunk = (campus, campusId) => async dispatch => {
+	try {
+		const res = await axios.put(`/api/campuses/${campusId}`, campus);
+		dispatch(editCampus(res.data));
+	} catch (err) {
+		console.log(err);
+	}
+};
+
+export const removeCampusThunk = campusId => async dispatch => {
+	try {
+		await axios.delete(`/api/campuses/${campusId}`);
+		dispatch(removeCampus(campusId));
+	} catch (err) {
+		console.log(err);
+	}
 };

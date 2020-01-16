@@ -8,8 +8,9 @@ import CampusCard from "./CampusCard";
 import { getCampusesThunk } from "../../actions";
 
 class AllCampuses extends Component {
-	componentDidMount() {
-		this.props.getAllCampuses();
+	constructor(props) {
+		super(props);
+		props.getAllCampuses();
 	}
 
 	render() {
@@ -21,8 +22,8 @@ class AllCampuses extends Component {
 				<div className="notFound"> No campuses currently listed! </div>
 			);
 		} else if (allCampuses) {
-			campusesCards = allCampuses.map(campus => (
-				<CampusCard key={campus.id} campus={campus} />
+			campusesCards = allCampuses.map((campus, index) => (
+				<CampusCard key={index} campus={campus} />
 			));
 		}
 

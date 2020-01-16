@@ -4,7 +4,7 @@ import { withRouter } from "react-router";
 
 import AddCampusView from "./AddCampusView";
 
-import { addCampus } from "../../actions";
+import { addCampusThunk } from "../../actions";
 
 //MUST GENERATE CAMPUS ID SOMEHOW
 
@@ -12,11 +12,10 @@ class AddCampus extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			id: 20,
 			name: "",
 			email: "",
-			imageUrl: "",
-			campusId: "",
+			location: "",
+			imageUrl: ""
 		};
 	}
 
@@ -24,21 +23,18 @@ class AddCampus extends Component {
 		this.setState({
 			[event.target.name]: event.target.value
 		});
-
 	};
 
 	handleSubmit = event => {
 		event.preventDefault();
 		let campus = {
-			id: this.state.id,
 			name: this.state.name,
 			email: this.state.email,
-			imageUrl: this.state.imageUrl,
-			campusId: this.state.campusId
+			location: this.state.location,
+			imageUrl: this.state.imageUrl
 		};
 		this.props.addCampus(campus);
-		console.log(this.props.allCampuses);
-		this.props.history.push('.')
+		this.props.history.push(".");
 	};
 
 	render() {
@@ -47,8 +43,8 @@ class AddCampus extends Component {
 				<AddCampusView
 					name={this.state.name}
 					email={this.state.email}
+					location={this.state.location}
 					imageUrl={this.state.imageUrl}
-					campusId={this.state.campusId}
 					handleSubmit={this.handleSubmit}
 					handleChange={this.handleChange}
 				/>
@@ -65,7 +61,7 @@ const mapState = state => {
 
 const mapDispatch = dispatch => {
 	return {
-		addCampus: campus => dispatch(addCampus(campus))
+		addCampus: campus => dispatch(addCampusThunk(campus))
 	};
 };
 

@@ -10,7 +10,6 @@ class AddStudent extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			id: 20,
 			firstName: "",
 			lastName: "",
 			email: "",
@@ -29,7 +28,6 @@ class AddStudent extends Component {
 	handleSubmit = event => {
 		event.preventDefault();
 		let student = {
-			id: this.state.id,
 			firstName: this.state.firstName,
 			lastName: this.state.lastName,
 			email: this.state.email,

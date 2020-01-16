@@ -1,33 +1,31 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { withRouter } from 'react-router'
+import { withRouter } from "react-router";
 
 import EditCampusView from "./EditCampusView";
 
-import { editCampus, getCampusThunk } from "../../actions";
+import { editCampusThunk, getCampusThunk } from "../../actions";
 
 class EditCampus extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			id: 0,
 			name: "",
 			email: "",
-			imageUrl: "https://s3.amazonaws.com/freestock-prod/450/freestock_565622158.jpg",
-			campusId: "",
+			location: "",
+			imageUrl:
+				"https://s3.amazonaws.com/freestock-prod/450/freestock_565622158.jpg"
 		};
 	}
 
 	componentDidMount() {
 		//Error check if user attmepts to edit non existant campus
-		if(this.props.currCampus !== undefined){
+		if (this.props.currCampus !== undefined) {
 			this.setState({
-				id: this.props.currCampus.id,
 				name: this.props.currCampus.name,
 				email: this.props.currCampus.email,
-				imageUrl: this.props.currCampus.imageUrl,
-				gpa: this.props.currCampus.gpa,
-				campusId: this.props.currCampus.campusId
+				location: this.props.currCampus.location,
+				imageUrl: this.props.currCampus.imageUrl
 			});
 		}
 	}
@@ -41,35 +39,30 @@ class EditCampus extends Component {
 	handleSubmit = event => {
 		event.preventDefault();
 		let campus = {
-			id: this.state.id,
 			name: this.state.name,
 			email: this.state.email,
-			imageUrl: this.state.imageUrl,
-			campusId: this.state.campusId
+			location: this.state.location,
+			imageUrl: this.state.imageUrl
 		};
-
-		this.props.editCampus(campus, this.state.id);
-		this.props.history.push('.')
+		console.log(this.props);
+		this.props.editCampus(campus, this.props.currCampus.id);
+		this.props.history.push(".");
 	};
 
 	render() {
 		//PLEASE STYLE ME
-		if(this.props.currCampus === undefined){
-			return (<div>
-				This campus does not exist
-			</div>)
+		if (this.props.currCampus === undefined) {
+			return <div>This campus does not exist</div>;
 		}
-
 
 		return (
 			<div>
 				<EditCampusView
-					id={this.props.campusId}
 					name={this.state.name}
-					campusName={this.state.campusName}
 					email={this.state.email}
+					location={this.state.location}
 					imageUrl={this.state.imageUrl}
-					campusId={this.state.campusId}
+					id={this.props.currCampus.id}
 					handleSubmit={this.handleSubmit}
 					handleChange={this.handleChange}
 				/>
@@ -88,7 +81,7 @@ const mapState = state => {
 const mapDispatch = dispatch => {
 	return {
 		editCampus: (campus, campusId) =>
-			dispatch(editCampus(campus, campusId)),
+			dispatch(editCampusThunk(campus, campusId)),
 		getCampus: id => dispatch(getCampusThunk(id))
 	};
 };

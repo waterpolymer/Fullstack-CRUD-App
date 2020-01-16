@@ -4,11 +4,11 @@ import LinkButton from "../utilities/LinkButton";
 
 const EditCampusView = props => {
 	const {
-		id,
 		name,
 		email,
+		location,
 		imageUrl,
-		campusId,
+		id,
 		handleSubmit,
 		handleChange
 	} = props;
@@ -28,7 +28,7 @@ const EditCampusView = props => {
 					>
 						<div>
 							{" "}
-							name:
+							Name:
 							<input
 								className="box"
 								name="name"
@@ -40,7 +40,7 @@ const EditCampusView = props => {
 						</div>
 						<div>
 							{" "}
-							email:{" "}
+							Email:{" "}
 							<input
 								className="box"
 								name="email"
@@ -51,8 +51,18 @@ const EditCampusView = props => {
 							/>
 						</div>
 						<div>
-							{" "}
-							image url:{" "}
+							Location:
+							<input
+								className="box"
+								name="location"
+								type="text"
+								value={location}
+								onChange={handleChange}
+								required
+							/>
+						</div>
+						<div>
+							Image URL:
 							<input
 								className="box"
 								name="imageUrl"
@@ -63,20 +73,7 @@ const EditCampusView = props => {
 							/>
 						</div>
 						<div>
-							{" "}
-							campus Id:{" "}
-							<input
-								className="box"
-								name="campusId"
-								type="text"
-								value={campusId}
-								onChange={handleChange}
-								required
-							/>
-						</div>
-						<div>
-							{" "}
-							<input type="submit" value="Submit" id="submit" />
+							<input className="box" type="submit" value="Submit" id="submit" />
 						</div>
 					</form>
 				</div>
