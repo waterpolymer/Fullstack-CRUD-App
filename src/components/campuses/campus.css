@@ -94,3 +94,8 @@ img {
 div.input {
   margin: auto;
 }
+
+.notFound {
+  color: #8b423e;
+  font-size: 25px;
+}

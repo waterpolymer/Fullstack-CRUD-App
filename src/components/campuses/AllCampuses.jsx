@@ -8,30 +8,34 @@ import CampusCard from "./CampusCard";
 import { getCampusesThunk } from "../../actions";
 
 class AllCampuses extends Component {
-	componentDidMount() {
-		this.props.getAllCampuses();
-	}
+  componentDidMount() {
+    this.props.getAllCampuses();
+  }
 
-	render() {
-		const { allCampuses } = this.props;
-		let campusesCards = null;
+  render() {
+    const { allCampuses } = this.props;
+    let campusesCards = null;
 
-		if(allCampuses !== undefined && allCampuses.length === 0){
-			campusesCards = <div> No campuses currently listed </div>
-		}else if (allCampuses) {
-			campusesCards = allCampuses.map(campus => (
-				<CampusCard key={campus.id} campus={campus} />
-			));
-		}
+    if (allCampuses !== undefined && allCampuses.length === 0) {
+      campusesCards = (
+        <div class="notFound"> No campuses currently listed! </div>
+      );
+    } else if (allCampuses) {
+      campusesCards = allCampuses.map(campus => (
+        <CampusCard key={campus.id} campus={campus} />
+      ));
+    }
 
-		return (
-			<div className="all-campuses-container">
-				<h1>All Campuses</h1>
-				<div className="campus-card-container">{campusesCards}</div>
-				<LinkButton class="button" to="/campuses/add-campus">Add Campus</LinkButton>
-			</div>
-		);
-	}
+    return (
+      <div className="all-campuses-container">
+        <h1>All Campuses</h1>
+        <div className="campus-card-container">{campusesCards}</div>
+        <LinkButton class="button" to="/campuses/add-campus">
+          Add Campus
+        </LinkButton>
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = state => ({

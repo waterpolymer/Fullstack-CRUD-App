@@ -70,7 +70,7 @@
 
 .button {
   margin: 20px;
-  background-color: #ee818e; /* Green */
+  background-color: #ee818e;
   border: none;
   color: white;
   padding: 16px 32px;
@@ -85,7 +85,7 @@
 }
 
 .button:hover {
-  background-color: #8b423e; /* Green */
+  background-color: #8b423e;
   color: white;
 }
 
@@ -99,4 +99,9 @@ img {
 
 div.input {
   margin: auto;
+}
+
+.notFound {
+  color: #8b423e;
+  font-size: 25px;
 }
