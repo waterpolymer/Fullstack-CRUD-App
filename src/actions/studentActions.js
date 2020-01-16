@@ -6,6 +6,8 @@ import {
 	GET_STUDENT
 } from "./actionTypes";
 
+import axios from "axios";
+
 const dummyStudents = [
 	{
 		id: 1,
@@ -89,9 +91,9 @@ export const removeStudent = studentId => {
 	};
 };
 
-export const getStudentsThunk = () => dispatch => {
-	const arrayOfStudentsFromAPI = dummyStudents;
-	dispatch(getStudents(arrayOfStudentsFromAPI));
+export const getStudentsThunk = () => async dispatch => {
+	const res = await axios.get("/api/students");
+	dispatch(getStudents(res.data));
 };
 
 export const getStudentThunk = studentId => dispatch => {
