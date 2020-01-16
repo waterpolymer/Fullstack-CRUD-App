@@ -37,6 +37,7 @@ const AddStudentView = props => {
               type="text"
               value={firstName}
               onChange={handleChange}
+              required
             />{" "}
           </div>
           <div>
@@ -48,6 +49,7 @@ const AddStudentView = props => {
               type="text"
               value={lastName}
               onChange={handleChange}
+              required
             />{" "}
           </div>
           <div>
@@ -59,6 +61,7 @@ const AddStudentView = props => {
               type="email"
               value={email}
               onChange={handleChange}
+              required
             />
           </div>
           <div>
@@ -70,6 +73,7 @@ const AddStudentView = props => {
               type="text"
               value={imageUrl}
               onChange={handleChange}
+              required
             />
           </div>
           <div>
@@ -81,6 +85,7 @@ const AddStudentView = props => {
               type="text"
               value={gpa}
               onChange={handleChange}
+              required
             />
           </div>
           <div>
@@ -92,6 +97,7 @@ const AddStudentView = props => {
               type="text"
               value={campusId}
               onChange={handleChange}
+              required
             />
           </div>
           <div>

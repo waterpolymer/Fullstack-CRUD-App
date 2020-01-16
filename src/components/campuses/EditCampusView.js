@@ -35,6 +35,7 @@ const EditCampusView = props => {
                 type="text"
                 value={name}
                 onChange={handleChange}
+                required
               />{" "}
             </div>
             <div>
@@ -46,6 +47,7 @@ const EditCampusView = props => {
                 type="email"
                 value={email}
                 onChange={handleChange}
+                required
               />
             </div>
             <div>
@@ -57,6 +59,7 @@ const EditCampusView = props => {
                 type="text"
                 value={imageUrl}
                 onChange={handleChange}
+                required
               />
             </div>
             <div>
@@ -68,6 +71,7 @@ const EditCampusView = props => {
                 type="text"
                 value={campusId}
                 onChange={handleChange}
+                required
               />
             </div>
             <div>

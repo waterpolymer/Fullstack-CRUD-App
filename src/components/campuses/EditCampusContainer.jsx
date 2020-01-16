@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from 'react-router'
 
 import EditCampusView from "./EditCampusView";
 
@@ -14,7 +15,6 @@ class EditCampus extends Component {
 			email: "",
 			imageUrl: "https://s3.amazonaws.com/freestock-prod/450/freestock_565622158.jpg",
 			campusId: "",
-			canSubmit: true
 		};
 	}
 
@@ -36,21 +36,6 @@ class EditCampus extends Component {
 		this.setState({
 			[event.target.name]: event.target.value
 		});
-		
-		//assumes true
-		let canSubmitValue = true;
-
-		for(let key in this.state){
-			if((key === event.target.name && event.target.value === "") || this.state[key] === "" ||
-			(event.target.name === "email" && !event.target.value.match(/.+@.+/))){
-					canSubmitValue = false;
-					break;
-			}
-		}
-
-		this.setState({
-			canSubmit: canSubmitValue
-		})
 	};
 
 	handleSubmit = event => {
@@ -64,6 +49,7 @@ class EditCampus extends Component {
 		};
 
 		this.props.editCampus(campus, this.state.id);
+		this.props.history.push('.')
 	};
 
 	render() {
@@ -86,7 +72,6 @@ class EditCampus extends Component {
 					campusId={this.state.campusId}
 					handleSubmit={this.handleSubmit}
 					handleChange={this.handleChange}
-					canSubmit={this.canSubmit}
 				/>
 			</div>
 		);
@@ -108,4 +93,4 @@ const mapDispatch = dispatch => {
 	};
 };
 
-export default connect(mapState, mapDispatch)(EditCampus);
+export default connect(mapState, mapDispatch)(withRouter(EditCampus));

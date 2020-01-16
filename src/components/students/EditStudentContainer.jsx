@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router"
 
 import EditStudentView from "./EditStudentView";
 
@@ -14,22 +15,24 @@ class EditStudent extends Component {
       firstName: "",
       lastName: "",
       email: "",
-      imageUrl: "https://i.stack.imgur.com/l60Hf.png",
+      imageUrl: "",
       gpa: "",
       campusId: ""
     };
   }
 
   componentDidMount() {
-    this.setState({
-      id: this.props.currStudent.id,
-      firstName: this.props.currStudent.firstName,
-      lastName: this.props.currStudent.lastName,
-      email: this.props.currStudent.email,
-      imageUrl: this.props.currStudent.imageUrl,
-      gpa: this.props.currStudent.gpa,
-      campusId: this.props.currStudent.campusId
-    });
+    if(this.props.currStudent !== undefined){
+      this.setState({
+        id: this.props.currStudent.id,
+        firstName: this.props.currStudent.firstName,
+        lastName: this.props.currStudent.lastName,
+        email: this.props.currStudent.email,
+        imageUrl: this.props.currStudent.imageUrl,
+        gpa: this.props.currStudent.gpa,
+        campusId: this.props.currStudent.campusId
+      });
+    }
   }
 
   handleChange = event => {
@@ -51,9 +54,15 @@ class EditStudent extends Component {
     };
 
     this.props.editStudent(student, this.state.id);
+    this.props.history.push('.');
   };
 
   render() {
+
+    if(this.props.currStudent === undefined){
+      return <div>This student does not exist to edit</div>
+    }
+
     return (
       <div className="test">
         <EditStudentView
@@ -88,4 +97,4 @@ const mapDispatch = dispatch => {
   };
 };
 
-export default connect(mapState, mapDispatch)(EditStudent);
+export default connect(mapState, mapDispatch)(withRouter(EditStudent));

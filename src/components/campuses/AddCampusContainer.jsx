@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router";
 
 import AddCampusView from "./AddCampusView";
 
@@ -27,7 +28,7 @@ class AddCampus extends Component {
 	};
 
 	handleSubmit = event => {
-		//event.preventDefault();
+		event.preventDefault();
 		let campus = {
 			id: this.state.id,
 			name: this.state.name,
@@ -37,6 +38,7 @@ class AddCampus extends Component {
 		};
 		this.props.addCampus(campus);
 		console.log(this.props.allCampuses);
+		this.props.history.push('.')
 	};
 
 	render() {
@@ -67,4 +69,4 @@ const mapDispatch = dispatch => {
 	};
 };
 
-export default connect(mapState, mapDispatch)(AddCampus);
+export default connect(mapState, mapDispatch)(withRouter(AddCampus));

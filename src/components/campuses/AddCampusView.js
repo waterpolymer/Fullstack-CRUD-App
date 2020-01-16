@@ -27,6 +27,7 @@ const AddCampusView = props => {
               type="text"
               value={name}
               onChange={handleChange}
+              required
             />
           </div>
           <div>
@@ -37,6 +38,7 @@ const AddCampusView = props => {
               type="email"
               value={email}
               onChange={handleChange}
+              required
             />
           </div>
           <div>
@@ -47,6 +49,7 @@ const AddCampusView = props => {
               type="text"
               value={imageUrl}
               onChange={handleChange}
+              required
             />
           </div>
           <div>
@@ -57,12 +60,11 @@ const AddCampusView = props => {
               type="text"
               value={campusId}
               onChange={handleChange}
+              required
             />
           </div>
           <div>
-            <LinkButton to="/campuses" onClick={handleSubmit}>
-              Submit
-            </LinkButton>
+            <input type="submit"></input>
           </div>
         </form>
       </div>
