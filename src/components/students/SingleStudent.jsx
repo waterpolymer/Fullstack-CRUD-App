@@ -35,7 +35,7 @@ class SingleStudent extends Component {
 					>
 						Remove Student
 					</Link>
-					<LinkButton class="button" to="/students">
+					<LinkButton className="button" to="/students">
 						All Students
 					</LinkButton>
 					<LinkButton
