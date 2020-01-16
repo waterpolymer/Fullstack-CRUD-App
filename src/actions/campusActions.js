@@ -1,4 +1,12 @@
-import { ADD_CAMPUS, REMOVE_CAMPUS, GET_CAMPUSES, GET_CAMPUS, EDIT_CAMPUS } from "./actionTypes";
+import {
+	ADD_CAMPUS,
+	REMOVE_CAMPUS,
+	GET_CAMPUSES,
+	GET_CAMPUS,
+	EDIT_CAMPUS
+} from "./actionTypes";
+
+import axios from "axios";
 
 const dummyCampuses = [
 	{
@@ -19,8 +27,7 @@ const dummyCampuses = [
 	}
 ];
 
-// const dummyCampuses = [];
-
+// Actions
 const getCampuses = campuses => {
 	return {
 		type: GET_CAMPUSES,
@@ -32,8 +39,8 @@ const getCampus = campus => {
 	return {
 		type: GET_CAMPUS,
 		payload: campus
-	}
-}
+	};
+};
 
 export const addCampus = campus => {
 	dummyCampuses.push(campus);
@@ -64,9 +71,11 @@ export const removeCampus = campusId => {
 	};
 };
 
-export const getCampusesThunk = () => dispatch => {
-	const arrayOfCampusesFromAPI = dummyCampuses;
-	dispatch(getCampuses(arrayOfCampusesFromAPI));
+// Thunks
+export const getCampusesThunk = () => async dispatch => {
+	const res = await axios.get("/api/campuses");
+	console.log(res.data);
+	dispatch(getCampuses(res.data));
 };
 
 export const getCampusThunk = campusId => dispatch => {

@@ -14,9 +14,8 @@ const CampusCard = props => {
 				></img>
 			</div>
 			<div className="campus-info">
-			<Link to={"/campuses/" + campus.id}
-				>{`Name: ${campus.name}`}</Link>
-				<p>{`Campus id: ${campus.campusId}`}</p>
+				<Link to={"/campuses/" + campus.id}>{`Name: ${campus.name}`}</Link>
+				<p>{`Campus id: ${campus.id}`}</p>
 			</div>
 		</div>
 	);
