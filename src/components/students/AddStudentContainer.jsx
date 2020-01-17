@@ -47,6 +47,13 @@ class AddStudent extends Component {
 	};
 
 	render() {
+		let campusNameIdArr = [];
+		this.props.allCampuses.forEach(campus => {
+			let campusInfo = {};
+			campusInfo["name"] = campus["name"];
+			campusInfo["id"] = campus["id"];
+			campusNameIdArr.push(campusInfo);
+		});
 		return (
 			<div>
 				<AddStudentView
@@ -56,7 +63,7 @@ class AddStudent extends Component {
 					email={this.state.email}
 					imageUrl={this.state.imageUrl}
 					gpa={this.state.gpa}
-					campusId={this.state.campusId}
+					campusNameIdArr={campusNameIdArr}
 					handleSubmit={this.handleSubmit}
 					handleChange={this.handleChange}
 				/>

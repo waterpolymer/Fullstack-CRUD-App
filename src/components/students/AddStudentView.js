@@ -10,11 +10,18 @@ const AddStudentView = props => {
 		email,
 		gpa,
 		imageUrl,
-		campusId,
+		campusNameIdArr,
 		handleSubmit,
 		handleChange
 	} = props;
 
+	const dropdownOptions = campusNameIdArr.map((campus, index) => {
+		return (
+			<option key={index} value={campus.id}>
+				{campus.name}
+			</option>
+		);
+	});
 	return (
 		<div>
 			<div>
@@ -82,16 +89,9 @@ const AddStudentView = props => {
 							required
 						/>
 					</div>
-					<div>
-						Campus ID:
-						<input
-							className="box"
-							name="campusId"
-							type="text"
-							value={campusId}
-							onChange={handleChange}
-						/>
-					</div>
+					<select name="campusId" onChange={handleChange} required>
+						{dropdownOptions}
+					</select>
 					<div>
 						<input className="box" type="submit" value="Submit" id="submit" />
 					</div>
