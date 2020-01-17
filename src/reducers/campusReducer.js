@@ -27,7 +27,8 @@ export default (state = initialState, action) => {
 				...state,
 				allCampuses: state.allCampuses.filter(
 					campus => campus.id !== action.payload
-				)
+				),
+				currCampus: null
 			};
 		case EDIT_CAMPUS:
 			return {

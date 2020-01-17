@@ -78,8 +78,8 @@ export const addStudentThunk = student => async dispatch => {
 			apiStudent = objectWithoutKey(student, "campusId");
 		}
 
-		await axios.post("/api/students", apiStudent);
-		dispatch(addStudent(student));
+		const res = await axios.post("/api/students", apiStudent);
+		dispatch(addStudent(res.data));
 	} catch (err) {
 		console.log(err);
 	}

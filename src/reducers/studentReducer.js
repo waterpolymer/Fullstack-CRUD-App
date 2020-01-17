@@ -43,7 +43,8 @@ export default (state = initialState, action) => {
 				...state,
 				allStudents: state.allStudents.filter(
 					student => student.id !== action.payload
-				)
+				),
+				currStudent: null
 			};
 		default:
 			return state;
