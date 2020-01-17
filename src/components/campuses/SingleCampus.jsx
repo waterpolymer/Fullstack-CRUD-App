@@ -62,7 +62,6 @@ class SingleCampus extends Component {
 
 const mapStateToProps = state => ({
 	campusId: parseInt(window.location.pathname.split("/")[2]),
-	allCampuses: state.campus.allCampuses,
 	currCampus: state.campus.currCampus
 });
 
