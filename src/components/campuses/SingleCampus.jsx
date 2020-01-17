@@ -12,20 +12,16 @@ class SingleCampus extends Component {
 	constructor(props) {
 		super(props);
 		props.getCampus(props.campusId);
-
-		// const currCampus = props.allCampuses.filter(
-		// 	campus => campus.id === props.campusId
-		// )[0];
-		// this.state = {
-		// 	campus: currCampus
-		// };
-		// console.log(props.currCampus, currCampus);
 	}
 
 	render() {
 		let campusInfo = null;
 		if (this.props.currCampus) {
 			const campus = this.props.currCampus;
+			const students = campus.students;
+			const studentCards = students.map((student, index) => (
+				<StudentCard key={index} student={student} />
+			));
 			campusInfo = (
 				<div>
 					<div>
@@ -50,6 +46,12 @@ class SingleCampus extends Component {
 						<img src={campus.imageUrl} width="400" alt="" />
 						<h3>{campus.name}</h3>
 						Email: {campus.email}
+					</div>
+					<div>
+						<h2>Students</h2>
+						<div className="student-card-container" style={{ margin: 0 }}>
+							{studentCards}
+						</div>
 					</div>
 				</div>
 			);

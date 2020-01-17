@@ -124,3 +124,11 @@ div.input {
 #submit:hover {
   background-color: #783936;
 }
+
+.student-card-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
