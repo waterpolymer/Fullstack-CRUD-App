@@ -12,8 +12,7 @@ const StudentCard = props => {
 			<div className="student-info">
 				<Link
 					to={"/students/" + student.id}
-				>{`Name: ${student.firstName} ${student.lastName}`}</Link>
-				<p>{`Campus id: ${student.campusId}`}</p>
+				>{`${student.firstName} ${student.lastName}`}</Link>
 			</div>
 		</div>
 	);

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./campus.css";
 
+import SingleCampusStudentCard from "./SingleCampusStudentCard";
 import LinkButton from "../utilities/LinkButton";
 
 import { getCampusThunk, removeCampusThunk } from "../../actions";
@@ -10,7 +11,15 @@ import { getCampusThunk, removeCampusThunk } from "../../actions";
 class SingleCampus extends Component {
 	constructor(props) {
 		super(props);
-		props.getCampus(this.props.campusId);
+		props.getCampus(props.campusId);
+
+		// const currCampus = props.allCampuses.filter(
+		// 	campus => campus.id === props.campusId
+		// )[0];
+		// this.state = {
+		// 	campus: currCampus
+		// };
+		// console.log(props.currCampus, currCampus);
 	}
 
 	render() {
@@ -50,6 +59,7 @@ class SingleCampus extends Component {
 
 const mapStateToProps = state => ({
 	campusId: parseInt(window.location.pathname.split("/")[2]),
+	allCampuses: state.campus.allCampuses,
 	currCampus: state.campus.currCampus
 });
 

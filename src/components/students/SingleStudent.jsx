@@ -22,11 +22,15 @@ class SingleStudent extends Component {
 					<div>
 						<img src={student.imageUrl} width="400" alt="" />
 						<h3>
-							{student.firstName} {student.LastName}
+							{student.firstName} {student.lastName}
 						</h3>
 						Email: {student.email} <br />
 						GPA: {student.gpa} <br />
-						Campus: <Link to={`/campuses/${student.campusId}`}> {student.campus.name} </Link>
+						Campus:{" "}
+						<Link to={`/campuses/${student.campusId}`}>
+							{" "}
+							{student.campus.name}{" "}
+						</Link>
 					</div>
 					<Link
 						className="button"
