@@ -15,7 +15,8 @@ export default (state = initialState, action) => {
 		case GET_CAMPUSES:
 			return {
 				...state,
-				allCampuses: action.payload
+				allCampuses: action.payload,
+				currCampus: null
 			};
 		case ADD_CAMPUS:
 			return {

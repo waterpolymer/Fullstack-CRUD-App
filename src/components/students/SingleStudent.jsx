@@ -45,10 +45,13 @@ class SingleStudent extends Component {
 						Email: {student.email} <br />
 						GPA: {student.gpa} <br />
 						Campus:{" "}
-						<Link to={`/campuses/${student.campusId}`}>
-							{" "}
-							{student.campus.name}{" "}
-						</Link>
+						{student.campus ? (
+							<Link to={`/campuses/${student.campusId}`}>
+								{student.campus.name}
+							</Link>
+						) : (
+							"None"
+						)}
 					</div>
 				</div>
 			);
