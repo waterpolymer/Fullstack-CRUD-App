@@ -92,15 +92,14 @@ const AddStudentView = props => {
 					<select name="campusId" onChange={handleChange} required>
 						{dropdownOptions}
 					</select>
-					<div>
+					<div style={{ display: "flex", justifyContent: "center" }}>
 						<input className="box" type="submit" value="Submit" id="submit" />
 					</div>
 				</form>
+				<LinkButton className="button" to={"/students/"}>
+					Return to student
+				</LinkButton>
 			</div>
-
-			<LinkButton className="button" to={"/students/"}>
-				Return to student
-			</LinkButton>
 		</div>
 	);
 };

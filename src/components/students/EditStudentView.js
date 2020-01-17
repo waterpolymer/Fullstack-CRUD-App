@@ -11,10 +11,19 @@ const EditStudentView = props => {
 		email,
 		gpa,
 		imageUrl,
-		campusId,
+		initialCampusId,
+		campusNameIdArr,
 		handleSubmit,
 		handleChange
 	} = props;
+
+	const dropdownOptions = campusNameIdArr.map((campus, index) => {
+		return (
+			<option key={index} value={campus.id}>
+				{campus.name}
+			</option>
+		);
+	});
 
 	return (
 		<>
@@ -84,26 +93,25 @@ const EditStudentView = props => {
 							required
 						/>
 					</div>
-					<div>
-						Campus ID:
-						<input
-							className="box"
-							name="campusId"
-							type="text"
-							value={campusId}
-							onChange={handleChange}
-							required
-						/>
-					</div>
-					<div>
+					<select
+						defaultValue={initialCampusId}
+						name="campusId"
+						onChange={handleChange}
+						required
+					>
+						<option key={-1} value=""></option>
+						{dropdownOptions}
+					</select>
+					<div style={{ display: "flex", justifyContent: "center" }}>
 						<input className="box" type="submit" value="Submit" id="submit" />
 					</div>
 				</form>
+				<LinkButton className="button" to={`/students/${id}`}>
+					Return to student
+				</LinkButton>
 			</div>
 
-			<LinkButton className="button" to={`/students/${id}`}>
-				Return to student
-			</LinkButton>
+			{/* <LinkButton className="button">Cancel</LinkButton> */}
 		</>
 	);
 };
