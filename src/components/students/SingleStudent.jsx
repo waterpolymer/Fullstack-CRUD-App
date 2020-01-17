@@ -26,7 +26,7 @@ class SingleStudent extends Component {
 						</h3>
 						Email: {student.email} <br />
 						GPA: {student.gpa} <br />
-						Campus: {student.campusId}
+						Campus: <Link to={`/campuses/${student.campusId}`}> {student.campus.name} </Link>
 					</div>
 					<Link
 						className="button"
