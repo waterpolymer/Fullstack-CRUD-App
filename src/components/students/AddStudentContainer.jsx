@@ -30,7 +30,7 @@ class AddStudent extends Component {
 		});
 	};
 
-	handleSubmit = event => {
+	handleSubmit = async event => {
 		event.preventDefault();
 		let student = {
 			firstName: this.state.firstName,
@@ -40,8 +40,10 @@ class AddStudent extends Component {
 			gpa: this.state.gpa,
 			campusId: this.state.campusId
 		};
-		this.props.addStudent(student);
+		await this.props.addStudent(student);
+		const newStudent = this.props.allStudents.slice(-1)[0];
 		this.props.history.push(".");
+		this.props.history.push(`/students/${newStudent.id}`);
 	};
 
 	render() {
