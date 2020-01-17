@@ -20,6 +20,24 @@ class SingleStudent extends Component {
 			studentInfo = (
 				<div>
 					<div>
+						<Link
+							className="button"
+							to="/students"
+							onClick={() => this.props.removeStudent(student.id)}
+						>
+							Remove Student
+						</Link>
+						<LinkButton className="button" to="/students">
+							All Students
+						</LinkButton>
+						<LinkButton
+							className="button"
+							to={`/students/${student.id}/edit-student`}
+						>
+							Edit Student
+						</LinkButton>
+					</div>
+					<div>
 						<img src={student.imageUrl} width="400" alt="" />
 						<h3>
 							{student.firstName} {student.lastName}
@@ -32,22 +50,6 @@ class SingleStudent extends Component {
 							{student.campus.name}{" "}
 						</Link>
 					</div>
-					<Link
-						className="button"
-						to="/students"
-						onClick={() => this.props.removeStudent(student.id)}
-					>
-						Remove Student
-					</Link>
-					<LinkButton className="button" to="/students">
-						All Students
-					</LinkButton>
-					<LinkButton
-						className="button"
-						to={`/students/${student.id}/edit-student`}
-					>
-						Edit Student
-					</LinkButton>
 				</div>
 			);
 		}

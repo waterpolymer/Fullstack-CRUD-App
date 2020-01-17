@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./campus.css";
 
-import SingleCampusStudentCard from "./SingleCampusStudentCard";
+import StudentCard from "../students/StudentCard";
 import LinkButton from "../utilities/LinkButton";
 
 import { getCampusThunk, removeCampusThunk } from "../../actions";
@@ -29,27 +29,28 @@ class SingleCampus extends Component {
 			campusInfo = (
 				<div>
 					<div>
+						<Link
+							className="button"
+							to="/campuses"
+							onClick={() => this.props.removeCampus(campus.id)}
+						>
+							Remove Campus
+						</Link>
+						<LinkButton className="button" to="/campuses">
+							All Campuses
+						</LinkButton>
+						<LinkButton
+							className="button"
+							to={`/campuses/${campus.id}/edit-campus`}
+						>
+							Edit Campus
+						</LinkButton>
+					</div>
+					<div>
 						<img src={campus.imageUrl} width="400" alt="" />
 						<h3>{campus.name}</h3>
-						Email: {campus.email} <br />
-						Campus: {campus.id}
+						Email: {campus.email}
 					</div>
-					<Link
-						className="button"
-						to="/campuses"
-						onClick={() => this.props.removeCampus(campus.id)}
-					>
-						Remove Campus
-					</Link>
-					<LinkButton className="button" to="/campuses">
-						All Campuses
-					</LinkButton>
-					<LinkButton
-						className="button"
-						to={`/campuses/${campus.id}/edit-campus`}
-					>
-						Edit Campus
-					</LinkButton>
 				</div>
 			);
 		}
