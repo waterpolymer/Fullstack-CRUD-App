@@ -7,10 +7,8 @@ const AddCampusView = props => {
 	const { name, email, location, imageUrl, handleSubmit, handleChange } = props;
 
 	return (
-		<>
-			<div>
-				<h1>Add Campus</h1>
-			</div>
+		<div>
+			<h1>Add Campus</h1>
 			<div className="input">
 				<form
 					style={{
@@ -63,15 +61,15 @@ const AddCampusView = props => {
 							required
 						/>
 					</div>
-					<div>
+					<div style={{ display: "flex", justifyContent: "center" }}>
 						<input className="box" type="submit" value="Submit" id="submit" />
 					</div>
 				</form>
+				<LinkButton className="button" to="/campuses">
+					All Campuses
+				</LinkButton>
 			</div>
-			<LinkButton className="button" to="/campuses">
-				All Campuses
-			</LinkButton>
-		</>
+		</div>
 	);
 };
 

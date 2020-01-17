@@ -24,9 +24,7 @@ const AddStudentView = props => {
 	});
 	return (
 		<div>
-			<div>
-				<h1>Add Student</h1>
-			</div>
+			<h1>Add Student</h1>
 			<div className="input">
 				<form
 					style={{

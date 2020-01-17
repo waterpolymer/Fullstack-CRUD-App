@@ -26,10 +26,8 @@ const EditStudentView = props => {
 	});
 
 	return (
-		<>
-			<div>
-				<h1>Edit Student</h1>
-			</div>
+		<div>
+			<h1>Edit Student</h1>
 			<div className="input">
 				<form
 					style={{
@@ -110,9 +108,7 @@ const EditStudentView = props => {
 					Return to student
 				</LinkButton>
 			</div>
-
-			{/* <LinkButton className="button">Cancel</LinkButton> */}
-		</>
+		</div>
 	);
 };
 
