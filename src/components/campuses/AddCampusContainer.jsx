@@ -26,7 +26,7 @@ class AddCampus extends Component {
 		});
 	};
 
-	handleSubmit = event => {
+	handleSubmit = async event => {
 		event.preventDefault();
 		let campus = {
 			name: this.state.name,
@@ -34,8 +34,10 @@ class AddCampus extends Component {
 			location: this.state.location,
 			imageUrl: this.state.imageUrl
 		};
-		this.props.addCampus(campus);
+		await this.props.addCampus(campus);
+		const newCampus = this.props.allCampuses.slice(-1)[0];
 		this.props.history.push(".");
+		this.props.history.push(`/campuses/${newCampus.id}`);
 	};
 
 	render() {

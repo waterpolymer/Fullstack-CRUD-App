@@ -66,8 +66,8 @@ export const getCampusThunk = campusId => async dispatch => {
 
 export const addCampusThunk = campus => async dispatch => {
 	try {
-		await axios.post("/api/campuses", campus);
-		dispatch(addCampus(campus));
+		const res = await axios.post("/api/campuses", campus);
+		dispatch(addCampus(res.data));
 	} catch (err) {
 		console.log(err);
 	}
