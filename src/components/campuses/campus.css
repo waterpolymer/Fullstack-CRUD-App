@@ -35,6 +35,10 @@
 .campus-info {
   text-align: left;
   margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
 }
 
 .input {
@@ -64,7 +68,8 @@
 
 .button {
   margin: 20px;
-  background-color: #ee818e; /* Green */
+  background-color: #ee818e;
+  /* Green */
   border: none;
   color: white;
   padding: 16px 32px;
@@ -79,7 +84,8 @@
 }
 
 .button:hover {
-  background-color: #8b423e; /* Green */
+  background-color: #8b423e;
+  /* Green */
   color: white;
 }
 
